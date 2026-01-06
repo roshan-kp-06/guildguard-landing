@@ -304,9 +304,9 @@
                 <!-- 5x3 Logo Grid - gradient bg covers grid pattern only on this box -->
                 <style>
                     .client-logo {
-                        height: 22px;
+                        height: 16px;
                         width: auto;
-                        max-width: 110px;
+                        max-width: 70px;
                         object-fit: contain;
                         opacity: 0.6;
                         filter: brightness(0) invert(1);
@@ -315,6 +315,12 @@
                     .client-logo:hover {
                         opacity: 1;
                         filter: brightness(0) invert(1);
+                    }
+                    @media (min-width: 640px) {
+                        .client-logo {
+                            height: 20px;
+                            max-width: 100px;
+                        }
                     }
                     @media (min-width: 768px) {
                         .client-logo {
