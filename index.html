@@ -146,24 +146,23 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* FAQ Accordion - using grid for smoother animation */
+        /* FAQ Accordion */
         .faq-answer {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 0;
             overflow: hidden;
-        }
-        .faq-answer > div {
-            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding-top: 0;
+            padding-bottom: 0;
         }
         .faq-item.active .faq-answer {
-            grid-template-rows: 1fr;
+            max-height: 500px;
+            padding-bottom: 1.25rem;
         }
         .faq-item.active .faq-icon {
             transform: rotate(45deg);
         }
         .faq-icon {
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s ease;
         }
 
 
@@ -1319,59 +1318,56 @@
                 <p class="text-white/60 text-lg max-w-2xl mx-auto">Here's exactly what happens when you work with us</p>
             </div>
 
-            <!-- Roadmap-style steps with connecting lines -->
-            <div class="relative reveal">
-                <!-- Connecting line (desktop only) -->
-                <div class="hidden md:block absolute top-[60px] left-[16.67%] right-[16.67%] h-[2px] bg-gradient-to-r from-[#5865F2] via-[#5865F2]/50 to-[#5865F2]"></div>
-
-                <div class="grid md:grid-cols-3 gap-8 md:gap-6">
+            <!-- Steps with connecting lines between boxes -->
+            <div class="reveal">
+                <div class="flex flex-col md:flex-row md:items-stretch gap-4 md:gap-0">
                     <!-- Step 1 -->
-                    <div class="relative">
-                        <!-- Step number circle -->
-                        <div class="flex justify-center mb-6">
-                            <div class="relative z-10 w-[120px] h-[120px] rounded-full bg-[#0A0B10] border-2 border-[#5865F2] flex items-center justify-center">
-                                <span class="text-5xl font-serif text-[#5865F2]">1</span>
+                    <div class="flex-1 bg-[#0A0B10] border border-white/10 p-8">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-full bg-[#5865F2]/10 border-2 border-[#5865F2] flex items-center justify-center flex-shrink-0">
+                                <span class="text-xl font-serif text-[#5865F2]">1</span>
                             </div>
+                            <h3 class="text-xl md:text-2xl font-serif text-white">Book A Call</h3>
                         </div>
-                        <!-- Card content -->
-                        <div class="bg-[#0A0B10] border border-white/10 p-8 h-full">
-                            <h3 class="text-2xl md:text-3xl font-serif text-white mb-4 text-center">Book A Call</h3>
-                            <p class="text-white/60 text-base leading-relaxed text-center">Schedule a 30-minute discovery call with our team. We'll learn about your business, your goals, and determine if we're the right fit to help you scale profitably.</p>
-                        </div>
+                        <p class="text-white/60 text-base leading-relaxed">Schedule a 30-minute discovery call with our team. We'll learn about your business, your goals, and determine if we're the right fit to help you scale profitably.</p>
+                    </div>
+
+                    <!-- Connector 1-2 -->
+                    <div class="hidden md:flex items-center justify-center w-12 flex-shrink-0">
+                        <div class="w-full h-[2px] bg-[#5865F2]"></div>
+                    </div>
+                    <div class="md:hidden flex justify-center py-2">
+                        <div class="w-[2px] h-6 bg-[#5865F2]"></div>
                     </div>
 
                     <!-- Step 2 -->
-                    <div class="relative">
-                        <!-- Mobile connecting line -->
-                        <div class="md:hidden absolute -top-4 left-1/2 -translate-x-1/2 w-[2px] h-8 bg-[#5865F2]"></div>
-                        <!-- Step number circle -->
-                        <div class="flex justify-center mb-6">
-                            <div class="relative z-10 w-[120px] h-[120px] rounded-full bg-[#0A0B10] border-2 border-[#5865F2] flex items-center justify-center">
-                                <span class="text-5xl font-serif text-[#5865F2]">2</span>
+                    <div class="flex-1 bg-[#0A0B10] border border-white/10 p-8">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-full bg-[#5865F2]/10 border-2 border-[#5865F2] flex items-center justify-center flex-shrink-0">
+                                <span class="text-xl font-serif text-[#5865F2]">2</span>
                             </div>
+                            <h3 class="text-xl md:text-2xl font-serif text-white">Complimentary Audit</h3>
                         </div>
-                        <!-- Card content -->
-                        <div class="bg-[#0A0B10] border border-white/10 p-8 h-full">
-                            <h3 class="text-2xl md:text-3xl font-serif text-white mb-4 text-center">Complimentary Audit</h3>
-                            <p class="text-white/60 text-base leading-relaxed text-center">We'll conduct a deep-dive audit of your current offer, ads, key metrics, funnels, and creatives. You'll walk away with actionable insights regardless of whether we work together.</p>
-                        </div>
+                        <p class="text-white/60 text-base leading-relaxed">We'll conduct a deep-dive audit of your current offer, ads, key metrics, funnels, and creatives. You'll walk away with actionable insights regardless of whether we work together.</p>
+                    </div>
+
+                    <!-- Connector 2-3 -->
+                    <div class="hidden md:flex items-center justify-center w-12 flex-shrink-0">
+                        <div class="w-full h-[2px] bg-[#5865F2]"></div>
+                    </div>
+                    <div class="md:hidden flex justify-center py-2">
+                        <div class="w-[2px] h-6 bg-[#5865F2]"></div>
                     </div>
 
                     <!-- Step 3 -->
-                    <div class="relative">
-                        <!-- Mobile connecting line -->
-                        <div class="md:hidden absolute -top-4 left-1/2 -translate-x-1/2 w-[2px] h-8 bg-[#5865F2]"></div>
-                        <!-- Step number circle -->
-                        <div class="flex justify-center mb-6">
-                            <div class="relative z-10 w-[120px] h-[120px] rounded-full bg-[#0A0B10] border-2 border-[#5865F2] flex items-center justify-center">
-                                <span class="text-5xl font-serif text-[#5865F2]">3</span>
+                    <div class="flex-1 bg-[#0A0B10] border border-white/10 p-8">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-full bg-[#5865F2]/10 border-2 border-[#5865F2] flex items-center justify-center flex-shrink-0">
+                                <span class="text-xl font-serif text-[#5865F2]">3</span>
                             </div>
+                            <h3 class="text-xl md:text-2xl font-serif text-white">Granular Roadmap</h3>
                         </div>
-                        <!-- Card content -->
-                        <div class="bg-[#0A0B10] border border-white/10 p-8 h-full">
-                            <h3 class="text-2xl md:text-3xl font-serif text-white mb-4 text-center">Granular Roadmap</h3>
-                            <p class="text-white/60 text-base leading-relaxed text-center">We'll map out exactly what needs to be done to get your ads live and profitable within 14 days - including offer positioning, creative strategy, funnel architecture, and targeting approach.</p>
-                        </div>
+                        <p class="text-white/60 text-base leading-relaxed">We'll map out exactly what needs to be done to get your ads live and profitable within 14 days - including offer positioning, creative strategy, funnel architecture, and targeting approach.</p>
                     </div>
                 </div>
             </div>
@@ -1401,14 +1397,12 @@
                 <div class="faq-item rounded-xl bg-[#0A0B10] border border-white/10 overflow-hidden">
                     <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
                         <span class="text-white font-medium text-sm pr-4">What makes you different from other agencies?</span>
-                        <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
+                        <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <div class="pb-5">
-                            <p class="text-white/80 text-base font-medium leading-relaxed">
-                                We only work with B2B SaaS companies. That's it. This means every framework, every creative angle, every optimization we've learned comes from companies like yours. We also own the entire funnel - ads, landing pages, VSL, email flows - so you're not coordinating between five different vendors.
-                            </p>
-                        </div>
+                        <p class="text-white/80 text-base font-medium leading-relaxed">
+                            We only work with B2B SaaS companies. That's it. This means every framework, every creative angle, every optimization we've learned comes from companies like yours. We also own the entire funnel - ads, landing pages, VSL, email flows - so you're not coordinating between five different vendors.
+                        </p>
                     </div>
                 </div>
 
@@ -1419,11 +1413,9 @@
                         <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <div class="pb-5">
-                            <p class="text-white/80 text-base font-medium leading-relaxed">
-                                We launch campaigns within 14 days of kickoff. Most clients see their first booked demos within the first 7 days. Meaningful data on what's working usually comes by week 2-3. Full optimization and scaling typically happens over 6-8 weeks.
-                            </p>
-                        </div>
+                        <p class="text-white/80 text-base font-medium leading-relaxed">
+                            We launch campaigns within 14 days of kickoff. Most clients see their first booked demos within the first 7 days. Meaningful data on what's working usually comes by week 2-3. Full optimization and scaling typically happens over 6-8 weeks.
+                        </p>
                     </div>
                 </div>
 
@@ -1434,11 +1426,9 @@
                         <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <div class="pb-5">
-                            <p class="text-white/80 text-base font-medium leading-relaxed">
-                                We recommend a minimum of $200/day in ad spend. This gives us enough data to test creative angles, optimize campaigns, and scale what's working.
-                            </p>
-                        </div>
+                        <p class="text-white/80 text-base font-medium leading-relaxed">
+                            We recommend a minimum of $200/day in ad spend. This gives us enough data to test creative angles, optimize campaigns, and scale what's working.
+                        </p>
                     </div>
                 </div>
 
@@ -1449,11 +1439,9 @@
                         <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <div class="pb-5">
-                            <p class="text-white/80 text-base font-medium leading-relaxed">
-                                We primarily work with sales-led B2B SaaS. If your main GTM motion is 100% product led growth, we're probably not the right fit. If you have a sales team and want to drive more qualified demos, that's where we excel.
-                            </p>
-                        </div>
+                        <p class="text-white/80 text-base font-medium leading-relaxed">
+                            We primarily work with sales-led B2B SaaS. If your main GTM motion is 100% product led growth, we're probably not the right fit. If you have a sales team and want to drive more qualified demos, that's where we excel.
+                        </p>
                     </div>
                 </div>
 
@@ -1464,11 +1452,9 @@
                         <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <div class="pb-5">
-                            <p class="text-white/80 text-base font-medium leading-relaxed">
-                                Most B2B SaaS companies fail at paid ads for one of three reasons: wrong offer, wrong creative, or wrong funnel. We fix all three. We've worked with companies who burned through agencies before finding us - the difference is we understand B2B SaaS buying cycles and build everything around booking qualified demos, not vanity metrics.
-                            </p>
-                        </div>
+                        <p class="text-white/80 text-base font-medium leading-relaxed">
+                            Most B2B SaaS companies fail at paid ads for one of three reasons: wrong offer, wrong creative, or wrong funnel. We fix all three. We've worked with companies who burned through agencies before finding us - the difference is we understand B2B SaaS buying cycles and build everything around booking qualified demos, not vanity metrics.
+                        </p>
                     </div>
                 </div>
 
@@ -1479,11 +1465,9 @@
                         <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <div class="pb-5">
-                            <p class="text-white/80 text-base font-medium leading-relaxed">
-                                During the first 2-3 weeks, we'll need more of your time - sales call recordings, offer feedback, creative approvals. After launch, it's typically a 30-minute call per week plus Slack for communication. We handle the execution.
-                            </p>
-                        </div>
+                        <p class="text-white/80 text-base font-medium leading-relaxed">
+                            During the first 2-3 weeks, we'll need more of your time - sales call recordings, offer feedback, creative approvals. After launch, it's typically a 30-minute call per week plus Slack for communication. We handle the execution.
+                        </p>
                     </div>
                 </div>
 
@@ -1494,11 +1478,9 @@
                         <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <div class="pb-5">
-                            <p class="text-white/80 text-base font-medium leading-relaxed">
-                                We handle everything - scripting, design, editing. For video ads and VSLs, we'll need you or your team to film the talking head portions. We provide the scripts and shot lists, you just need to spend 1 hour per month (approximately) on filming.
-                            </p>
-                        </div>
+                        <p class="text-white/80 text-base font-medium leading-relaxed">
+                            We handle everything - scripting, design, editing. For video ads and VSLs, we'll need you or your team to film the talking head portions. We provide the scripts and shot lists, you just need to spend 1 hour per month (approximately) on filming.
+                        </p>
                     </div>
                 </div>
 
@@ -1509,11 +1491,9 @@
                         <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <div class="pb-5">
-                            <p class="text-white/80 text-base font-medium leading-relaxed">
-                                Primarily Meta (Facebook and Instagram). We've seen Meta have the lowest CAC, and highest ROAS across 60+ B2B SaaS clients we've worked with.
-                            </p>
-                        </div>
+                        <p class="text-white/80 text-base font-medium leading-relaxed">
+                            Primarily Meta (Facebook and Instagram). We've seen Meta have the lowest CAC, and highest ROAS across 60+ B2B SaaS clients we've worked with.
+                        </p>
                     </div>
                 </div>
 
@@ -1524,11 +1504,9 @@
                         <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <div class="pb-5">
-                            <p class="text-white/80 text-base font-medium leading-relaxed">
-                                We have setup, monthly, 3-month or 6-month plans depending on what you're looking for. Our pricing ranges from $5k - $30k across our plans and offers. We can share specific pricing on a call once we understand your situation.
-                            </p>
-                        </div>
+                        <p class="text-white/80 text-base font-medium leading-relaxed">
+                            We have setup, monthly, 3-month or 6-month plans depending on what you're looking for. Our pricing ranges from $5k - $30k across our plans and offers. We can share specific pricing on a call once we understand your situation.
+                        </p>
                     </div>
                 </div>
 
@@ -1539,11 +1517,9 @@
                         <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <div class="pb-5">
-                            <p class="text-white/80 text-base font-medium leading-relaxed">
-                                Yes. All landing pages, VSL scripts, ad creatives, email flows - everything we build is yours. If we part ways, you keep all assets and can continue running campaigns yourself.
-                            </p>
-                        </div>
+                        <p class="text-white/80 text-base font-medium leading-relaxed">
+                            Yes. All landing pages, VSL scripts, ad creatives, email flows - everything we build is yours. If we part ways, you keep all assets and can continue running campaigns yourself.
+                        </p>
                     </div>
                 </div>
 
@@ -1554,11 +1530,9 @@
                         <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <div class="pb-5">
-                            <p class="text-white/80 text-base font-medium leading-relaxed">
-                                Our goal is to make you profitable within 90 days. So we guarantee results, and offer a full refund if results are not met. If we've done our job and you've held up your end (ad spend, timely approvals, following our process), you will see results.
-                            </p>
-                        </div>
+                        <p class="text-white/80 text-base font-medium leading-relaxed">
+                            Our goal is to make you profitable within 90 days. So we guarantee results, and offer a full refund if results are not met. If we've done our job and you've held up your end (ad spend, timely approvals, following our process), you will see results.
+                        </p>
                     </div>
                 </div>
             </div>
