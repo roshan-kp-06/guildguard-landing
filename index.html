@@ -171,15 +171,21 @@
 
         /* Timeline Scroll Animation */
         .timeline-step.active .timeline-number {
-            border-color: #5865F2;
             color: #5865F2;
-            background: rgba(88, 101, 242, 0.1);
         }
         .timeline-step.active .timeline-title {
             color: #5865F2;
         }
-        .timeline-progress {
-            transition: height 0.1s ease-out;
+        .timeline-step.active .timeline-circle {
+            stroke-dashoffset: 0;
+        }
+        .timeline-step.active .timeline-connector {
+            height: calc(100% + 3rem);
+        }
+        @media (min-width: 768px) {
+            .timeline-step.active .timeline-connector {
+                height: calc(100% + 4rem);
+            }
         }
     </style>
 </head>
@@ -567,24 +573,37 @@
         <!-- Section 8: How It Works -->
         <section id="how-it-works" class="container mx-auto px-6 max-w-6xl mb-20 md:mb-32">
             <div class="mb-12 md:mb-16 text-center reveal">
-                <h2 class="text-3xl md:text-5xl font-serif text-white tracking-tight">How It Works</h2>
+                <p class="text-white/60 text-base md:text-lg mb-4">We think 4 week "onboarding" periods are crazy.</p>
+                <h2 class="text-3xl md:text-5xl font-serif text-white tracking-tight">Your First 30 Days With Airr Digital</h2>
             </div>
 
             <!-- Vertical Timeline with Scroll Animation -->
             <div class="relative max-w-3xl mx-auto reveal">
-                <!-- Background grey line (full height) -->
-                <div class="absolute left-8 md:left-12 top-0 bottom-0 w-[2px] bg-white/10"></div>
-
-                <!-- Animated blue progress line (grows on scroll) -->
-                <div class="absolute left-8 md:left-12 top-0 w-[2px] bg-brand-green timeline-progress" style="height: 0%"></div>
-
                 <!-- Steps -->
                 <div class="space-y-12 md:space-y-16">
                     <!-- Step 1 -->
                     <div class="relative flex gap-6 md:gap-10 timeline-step" data-step="1">
-                        <!-- Number circle -->
+                        <!-- Number circle with SVG ring -->
                         <div class="relative z-10 flex-shrink-0 w-16 md:w-24 flex justify-center">
-                            <span class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white/20 bg-[#020204] flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">1</span>
+                            <!-- Connector line going DOWN from this circle (grey background) -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-[calc(100%+3rem)] md:h-[calc(100%+4rem)] bg-white/10 timeline-connector-bg"></div>
+                            <!-- Connector line going DOWN from this circle (blue animated) -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-0 bg-brand-green timeline-connector transition-all duration-300"></div>
+                            <!-- Circle container -->
+                            <div class="relative w-10 h-10 md:w-12 md:h-12">
+                                <!-- Grey background circle -->
+                                <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="22" fill="#020204" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                                </svg>
+                                <!-- Animated blue circle -->
+                                <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="22" fill="none" stroke="#5865F2" stroke-width="2"
+                                            stroke-dasharray="138.23" stroke-dashoffset="138.23"
+                                            class="timeline-circle transition-all duration-500"/>
+                                </svg>
+                                <!-- Number -->
+                                <span class="absolute inset-0 flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">1</span>
+                            </div>
                         </div>
                         <!-- Content -->
                         <div class="pt-1 pb-2">
@@ -597,9 +616,27 @@
 
                     <!-- Step 2 -->
                     <div class="relative flex gap-6 md:gap-10 timeline-step" data-step="2">
-                        <!-- Number circle -->
+                        <!-- Number circle with SVG ring -->
                         <div class="relative z-10 flex-shrink-0 w-16 md:w-24 flex justify-center">
-                            <span class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white/20 bg-[#020204] flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">2</span>
+                            <!-- Connector line going DOWN from this circle (grey background) -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-[calc(100%+3rem)] md:h-[calc(100%+4rem)] bg-white/10 timeline-connector-bg"></div>
+                            <!-- Connector line going DOWN from this circle (blue animated) -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-0 bg-brand-green timeline-connector transition-all duration-300"></div>
+                            <!-- Circle container -->
+                            <div class="relative w-10 h-10 md:w-12 md:h-12">
+                                <!-- Grey background circle -->
+                                <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="22" fill="#020204" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                                </svg>
+                                <!-- Animated blue circle -->
+                                <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="22" fill="none" stroke="#5865F2" stroke-width="2"
+                                            stroke-dasharray="138.23" stroke-dashoffset="138.23"
+                                            class="timeline-circle transition-all duration-500"/>
+                                </svg>
+                                <!-- Number -->
+                                <span class="absolute inset-0 flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">2</span>
+                            </div>
                         </div>
                         <!-- Content -->
                         <div class="pt-1 pb-2">
@@ -612,45 +649,96 @@
 
                     <!-- Step 3 -->
                     <div class="relative flex gap-6 md:gap-10 timeline-step" data-step="3">
-                        <!-- Number circle -->
+                        <!-- Number circle with SVG ring -->
                         <div class="relative z-10 flex-shrink-0 w-16 md:w-24 flex justify-center">
-                            <span class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white/20 bg-[#020204] flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">3</span>
+                            <!-- Connector line going DOWN from this circle (grey background) -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-[calc(100%+3rem)] md:h-[calc(100%+4rem)] bg-white/10 timeline-connector-bg"></div>
+                            <!-- Connector line going DOWN from this circle (blue animated) -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-0 bg-brand-green timeline-connector transition-all duration-300"></div>
+                            <!-- Circle container -->
+                            <div class="relative w-10 h-10 md:w-12 md:h-12">
+                                <!-- Grey background circle -->
+                                <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="22" fill="#020204" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                                </svg>
+                                <!-- Animated blue circle -->
+                                <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="22" fill="none" stroke="#5865F2" stroke-width="2"
+                                            stroke-dasharray="138.23" stroke-dashoffset="138.23"
+                                            class="timeline-circle transition-all duration-500"/>
+                                </svg>
+                                <!-- Number -->
+                                <span class="absolute inset-0 flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">3</span>
+                            </div>
                         </div>
                         <!-- Content -->
                         <div class="pt-1 pb-2">
                             <h3 class="text-xl md:text-2xl font-serif text-white mb-2 timeline-title transition-colors duration-300">Creative Production</h3>
                             <p class="text-white/60 text-base leading-relaxed">
-                                Our team produces a full library of ad creatives - static images, video ads, and carousels - all built around the angles from your research. We deliver new creative variations every 72 hours to keep testing fresh and find what converts.
+                                We produce a full library of 50+ ad creatives, including static images, video, and carousel variations - focused on the angles from our research.
                             </p>
                         </div>
                     </div>
 
                     <!-- Step 4 -->
                     <div class="relative flex gap-6 md:gap-10 timeline-step" data-step="4">
-                        <!-- Number circle -->
+                        <!-- Number circle with SVG ring -->
                         <div class="relative z-10 flex-shrink-0 w-16 md:w-24 flex justify-center">
-                            <span class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white/20 bg-[#020204] flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">4</span>
+                            <!-- Connector line going DOWN from this circle (grey background) -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-[calc(100%+3rem)] md:h-[calc(100%+4rem)] bg-white/10 timeline-connector-bg"></div>
+                            <!-- Connector line going DOWN from this circle (blue animated) -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-0 bg-brand-green timeline-connector transition-all duration-300"></div>
+                            <!-- Circle container -->
+                            <div class="relative w-10 h-10 md:w-12 md:h-12">
+                                <!-- Grey background circle -->
+                                <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="22" fill="#020204" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                                </svg>
+                                <!-- Animated blue circle -->
+                                <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="22" fill="none" stroke="#5865F2" stroke-width="2"
+                                            stroke-dasharray="138.23" stroke-dashoffset="138.23"
+                                            class="timeline-circle transition-all duration-500"/>
+                                </svg>
+                                <!-- Number -->
+                                <span class="absolute inset-0 flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">4</span>
+                            </div>
                         </div>
                         <!-- Content -->
                         <div class="pt-1 pb-2">
                             <h3 class="text-xl md:text-2xl font-serif text-white mb-2 timeline-title transition-colors duration-300">Launch & Test</h3>
                             <p class="text-white/60 text-base leading-relaxed">
-                                We launch your campaigns and run structured tests across 60+ creative variations. Within 5-14 days, we identify your profitable angles and know exactly which messages, visuals, and audiences are driving the lowest cost per demo.
+                                We launch the ad campaigns and run tests over 60+ creatives. We typically find winning (profitable) angles within 5-14 days - and identify the messages, visuals, and audiences driving the lowest cost per demo.
                             </p>
                         </div>
                     </div>
 
                     <!-- Step 5 -->
                     <div class="relative flex gap-6 md:gap-10 timeline-step" data-step="5">
-                        <!-- Number circle -->
+                        <!-- Number circle with SVG ring -->
                         <div class="relative z-10 flex-shrink-0 w-16 md:w-24 flex justify-center">
-                            <span class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white/20 bg-[#020204] flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">5</span>
+                            <!-- No connector line for last step -->
+                            <!-- Circle container -->
+                            <div class="relative w-10 h-10 md:w-12 md:h-12">
+                                <!-- Grey background circle -->
+                                <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="22" fill="#020204" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                                </svg>
+                                <!-- Animated blue circle -->
+                                <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="22" fill="none" stroke="#5865F2" stroke-width="2"
+                                            stroke-dasharray="138.23" stroke-dashoffset="138.23"
+                                            class="timeline-circle transition-all duration-500"/>
+                                </svg>
+                                <!-- Number -->
+                                <span class="absolute inset-0 flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">5</span>
+                            </div>
                         </div>
                         <!-- Content -->
                         <div class="pt-1 pb-2">
                             <h3 class="text-xl md:text-2xl font-serif text-white mb-2 timeline-title transition-colors duration-300">Scale</h3>
                             <p class="text-white/60 text-base leading-relaxed">
-                                Once we find your winning combinations, we cut the underperformers and scale budget into what's working. We continuously optimize targeting, creative, and landing pages to maximize your ROAS while keeping your cost per acquisition low.
+                                Once we find the winning combinations, we cut the underperformers and scale budget into what's working. We continuously optimize the full funnel, and go all in on producing more creatives with the angles driving the highest ROAS.
                             </p>
                         </div>
                     </div>
@@ -1341,43 +1429,18 @@
         // Timeline scroll animation
         function updateTimeline() {
             const section = document.getElementById('how-it-works');
-            const progressLine = document.querySelector('.timeline-progress');
             const steps = document.querySelectorAll('.timeline-step');
-            const timelineContainer = document.querySelector('.timeline-progress')?.parentElement;
-
-            if (!section || !progressLine || !timelineContainer) return;
-
-            const sectionRect = section.getBoundingClientRect();
             const windowHeight = window.innerHeight;
 
-            // Get the actual timeline height (from first step to last step)
-            const firstStep = steps[0];
-            const lastStep = steps[steps.length - 1];
-            if (!firstStep || !lastStep) return;
-
-            const timelineStart = firstStep.getBoundingClientRect().top - sectionRect.top;
-            const timelineEnd = lastStep.getBoundingClientRect().top - sectionRect.top + lastStep.offsetHeight / 2;
-            const timelineHeight = timelineEnd - timelineStart;
-
-            // Calculate scroll progress within the section
-            const sectionTop = sectionRect.top;
-            const sectionHeight = sectionRect.height;
-
-            // Progress from 0 (section top at viewport center) to 100 (section bottom at viewport center)
-            const scrollProgress = Math.max(0, Math.min(100,
-                ((windowHeight * 0.4 - sectionTop) / (sectionHeight * 0.8)) * 100
-            ));
-
-            // Apply progress to the line
-            progressLine.style.height = scrollProgress + '%';
+            if (!section || steps.length === 0) return;
 
             // Activate steps based on their position
             steps.forEach((step, index) => {
                 const stepRect = step.getBoundingClientRect();
-                const stepMiddle = stepRect.top + stepRect.height / 2;
+                const stepTop = stepRect.top;
 
-                // Activate when step middle passes the 40% viewport point
-                if (stepMiddle < windowHeight * 0.5) {
+                // Activate when step top passes the 50% viewport point
+                if (stepTop < windowHeight * 0.5) {
                     step.classList.add('active');
                 } else {
                     step.classList.remove('active');
