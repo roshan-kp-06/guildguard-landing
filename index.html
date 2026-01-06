@@ -168,6 +168,19 @@
             transform: scale(1.1);
             box-shadow: 0 0 40px rgba(88, 101, 242, 0.5);
         }
+
+        /* Timeline Scroll Animation */
+        .timeline-step.active .timeline-number {
+            border-color: #5865F2;
+            color: #5865F2;
+            background: rgba(88, 101, 242, 0.1);
+        }
+        .timeline-step.active .timeline-title {
+            color: #5865F2;
+        }
+        .timeline-progress {
+            transition: height 0.1s ease-out;
+        }
     </style>
 </head>
 
@@ -557,56 +570,92 @@
                 <h2 class="text-3xl md:text-5xl font-serif text-white tracking-tight">How It Works</h2>
             </div>
 
-            <!-- Timeline grid - distinct from Why Airr Digital -->
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-0 reveal">
-                <!-- Step 1 -->
-                <div class="group relative p-6 md:p-8 border border-white/10 md:border-r-0 hover:bg-white/[0.02] transition-colors">
-                    <span class="block text-6xl md:text-7xl font-serif text-brand-green/20 group-hover:text-brand-green/30 transition-colors leading-none mb-4">1</span>
-                    <h3 class="text-lg md:text-xl font-serif text-white mb-3 tracking-tight">Research & Strategy</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">
-                        Analyze sales calls. Study your ICP. Identify winning angles.
-                    </p>
-                </div>
+            <!-- Vertical Timeline with Scroll Animation -->
+            <div class="relative max-w-3xl mx-auto reveal">
+                <!-- Background grey line (full height) -->
+                <div class="absolute left-8 md:left-12 top-0 bottom-0 w-[2px] bg-white/10"></div>
 
-                <!-- Step 2 -->
-                <div class="group relative p-6 md:p-8 border border-white/10 border-t-0 md:border-t md:border-r-0 hover:bg-white/[0.02] transition-colors">
-                    <span class="block text-6xl md:text-7xl font-serif text-brand-green/20 group-hover:text-brand-green/30 transition-colors leading-none mb-4">2</span>
-                    <h3 class="text-lg md:text-xl font-serif text-white mb-3 tracking-tight">Funnel Build</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">
-                        Landing page. VSL. Thank you page. Booking flows. All built.
-                    </p>
-                </div>
+                <!-- Animated blue progress line (grows on scroll) -->
+                <div class="absolute left-8 md:left-12 top-0 w-[2px] bg-brand-green timeline-progress" style="height: 0%"></div>
 
-                <!-- Step 3 -->
-                <div class="group relative p-6 md:p-8 border border-white/10 border-t-0 md:border-t md:border-r-0 hover:bg-white/[0.02] transition-colors">
-                    <span class="block text-6xl md:text-7xl font-serif text-brand-green/20 group-hover:text-brand-green/30 transition-colors leading-none mb-4">3</span>
-                    <h3 class="text-lg md:text-xl font-serif text-white mb-3 tracking-tight">Creative Production</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">
-                        Static ads. Video ads. Carousels. New tests every 72 hours.
-                    </p>
-                </div>
+                <!-- Steps -->
+                <div class="space-y-12 md:space-y-16">
+                    <!-- Step 1 -->
+                    <div class="relative flex gap-6 md:gap-10 timeline-step" data-step="1">
+                        <!-- Number circle -->
+                        <div class="relative z-10 flex-shrink-0 w-16 md:w-24 flex justify-center">
+                            <span class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white/20 bg-[#020204] flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">1</span>
+                        </div>
+                        <!-- Content -->
+                        <div class="pt-1 pb-2">
+                            <h3 class="text-xl md:text-2xl font-serif text-white mb-2 timeline-title transition-colors duration-300">Research & Strategy</h3>
+                            <p class="text-white/60 text-base leading-relaxed">
+                                Analyze sales calls. Study your ICP. Identify winning angles.
+                            </p>
+                        </div>
+                    </div>
 
-                <!-- Step 4 -->
-                <div class="group relative p-6 md:p-8 border border-white/10 border-t-0 md:border-t md:border-r-0 hover:bg-white/[0.02] transition-colors">
-                    <span class="block text-6xl md:text-7xl font-serif text-brand-green/20 group-hover:text-brand-green/30 transition-colors leading-none mb-4">4</span>
-                    <h3 class="text-lg md:text-xl font-serif text-white mb-3 tracking-tight">Launch & Test</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">
-                        60+ creatives tested. Profitable angle found in 5-14 days.
-                    </p>
-                </div>
+                    <!-- Step 2 -->
+                    <div class="relative flex gap-6 md:gap-10 timeline-step" data-step="2">
+                        <!-- Number circle -->
+                        <div class="relative z-10 flex-shrink-0 w-16 md:w-24 flex justify-center">
+                            <span class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white/20 bg-[#020204] flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">2</span>
+                        </div>
+                        <!-- Content -->
+                        <div class="pt-1 pb-2">
+                            <h3 class="text-xl md:text-2xl font-serif text-white mb-2 timeline-title transition-colors duration-300">Funnel Build</h3>
+                            <p class="text-white/60 text-base leading-relaxed">
+                                Landing page. VSL. Thank you page. Booking flows. All built.
+                            </p>
+                        </div>
+                    </div>
 
-                <!-- Step 5 -->
-                <div class="group relative p-6 md:p-8 border border-white/10 border-t-0 md:border-t hover:bg-white/[0.02] transition-colors">
-                    <span class="block text-6xl md:text-7xl font-serif text-brand-green/20 group-hover:text-brand-green/30 transition-colors leading-none mb-4">5</span>
-                    <h3 class="text-lg md:text-xl font-serif text-white mb-3 tracking-tight">Scale</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">
-                        Cut losers. Scale winners. Maximize ROAS and profit.
-                    </p>
+                    <!-- Step 3 -->
+                    <div class="relative flex gap-6 md:gap-10 timeline-step" data-step="3">
+                        <!-- Number circle -->
+                        <div class="relative z-10 flex-shrink-0 w-16 md:w-24 flex justify-center">
+                            <span class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white/20 bg-[#020204] flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">3</span>
+                        </div>
+                        <!-- Content -->
+                        <div class="pt-1 pb-2">
+                            <h3 class="text-xl md:text-2xl font-serif text-white mb-2 timeline-title transition-colors duration-300">Creative Production</h3>
+                            <p class="text-white/60 text-base leading-relaxed">
+                                Static ads. Video ads. Carousels. New tests every 72 hours.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative flex gap-6 md:gap-10 timeline-step" data-step="4">
+                        <!-- Number circle -->
+                        <div class="relative z-10 flex-shrink-0 w-16 md:w-24 flex justify-center">
+                            <span class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white/20 bg-[#020204] flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">4</span>
+                        </div>
+                        <!-- Content -->
+                        <div class="pt-1 pb-2">
+                            <h3 class="text-xl md:text-2xl font-serif text-white mb-2 timeline-title transition-colors duration-300">Launch & Test</h3>
+                            <p class="text-white/60 text-base leading-relaxed">
+                                60+ creatives tested. Profitable angle found in 5-14 days.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative flex gap-6 md:gap-10 timeline-step" data-step="5">
+                        <!-- Number circle -->
+                        <div class="relative z-10 flex-shrink-0 w-16 md:w-24 flex justify-center">
+                            <span class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white/20 bg-[#020204] flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">5</span>
+                        </div>
+                        <!-- Content -->
+                        <div class="pt-1 pb-2">
+                            <h3 class="text-xl md:text-2xl font-serif text-white mb-2 timeline-title transition-colors duration-300">Scale</h3>
+                            <p class="text-white/60 text-base leading-relaxed">
+                                Cut losers. Scale winners. Maximize ROAS and profit.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Bottom accent bar -->
-            <div class="h-1 bg-gradient-to-r from-transparent via-brand-green/30 to-transparent mt-0"></div>
         </section>
 
         <!-- Section 9: Testimonials -->
@@ -1288,6 +1337,58 @@
                 }
             });
         });
+
+        // Timeline scroll animation
+        function updateTimeline() {
+            const section = document.getElementById('how-it-works');
+            const progressLine = document.querySelector('.timeline-progress');
+            const steps = document.querySelectorAll('.timeline-step');
+            const timelineContainer = document.querySelector('.timeline-progress')?.parentElement;
+
+            if (!section || !progressLine || !timelineContainer) return;
+
+            const sectionRect = section.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Get the actual timeline height (from first step to last step)
+            const firstStep = steps[0];
+            const lastStep = steps[steps.length - 1];
+            if (!firstStep || !lastStep) return;
+
+            const timelineStart = firstStep.getBoundingClientRect().top - sectionRect.top;
+            const timelineEnd = lastStep.getBoundingClientRect().top - sectionRect.top + lastStep.offsetHeight / 2;
+            const timelineHeight = timelineEnd - timelineStart;
+
+            // Calculate scroll progress within the section
+            const sectionTop = sectionRect.top;
+            const sectionHeight = sectionRect.height;
+
+            // Progress from 0 (section top at viewport center) to 100 (section bottom at viewport center)
+            const scrollProgress = Math.max(0, Math.min(100,
+                ((windowHeight * 0.4 - sectionTop) / (sectionHeight * 0.8)) * 100
+            ));
+
+            // Apply progress to the line
+            progressLine.style.height = scrollProgress + '%';
+
+            // Activate steps based on their position
+            steps.forEach((step, index) => {
+                const stepRect = step.getBoundingClientRect();
+                const stepMiddle = stepRect.top + stepRect.height / 2;
+
+                // Activate when step middle passes the 40% viewport point
+                if (stepMiddle < windowHeight * 0.5) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateTimeline);
+        window.addEventListener('resize', updateTimeline);
+        // Run once on load after a short delay to ensure elements are rendered
+        setTimeout(updateTimeline, 100);
     </script>
 
 </body>
