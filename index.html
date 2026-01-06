@@ -150,17 +150,19 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.35s ease-out;
+            transition: max-height 0.15s ease-out;
+            padding-bottom: 0;
         }
         .faq-item.active .faq-answer {
             max-height: 300px;
-            transition: max-height 0.35s ease-in;
+            padding-bottom: 1.5rem;
+            transition: max-height 0.2s ease-in;
         }
         .faq-item.active .faq-icon {
             transform: rotate(45deg);
         }
         .faq-icon {
-            transition: transform 0.25s ease;
+            transition: transform 0.15s ease;
         }
 
 
