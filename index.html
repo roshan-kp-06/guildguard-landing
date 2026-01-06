@@ -230,6 +230,16 @@
         }
         /* Circle stroke, connector height, and number color now controlled by JavaScript for smooth scroll-based animation */
 
+        /* 3 Steps Connector Animation */
+        @keyframes slideRight {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        @keyframes slideDown {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
         </style>
 </head>
 
@@ -1407,10 +1417,14 @@
 
                     <!-- Connector 1-2 -->
                     <div class="hidden md:flex items-center justify-center w-12 flex-shrink-0">
-                        <div class="w-full h-[2px] bg-[#5865F2]"></div>
+                        <div class="relative w-full h-[2px] bg-[#5865F2] overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-[slideRight_3s_ease-in-out_infinite]" style="animation-delay: 0s;"></div>
+                        </div>
                     </div>
                     <div class="md:hidden flex justify-center">
-                        <div class="w-[2px] h-8 bg-[#5865F2]"></div>
+                        <div class="relative w-[2px] h-8 bg-[#5865F2] overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white to-transparent animate-[slideDown_3s_ease-in-out_infinite]" style="animation-delay: 0s;"></div>
+                        </div>
                     </div>
 
                     <!-- Step 2 -->
@@ -1426,10 +1440,14 @@
 
                     <!-- Connector 2-3 -->
                     <div class="hidden md:flex items-center justify-center w-12 flex-shrink-0">
-                        <div class="w-full h-[2px] bg-[#5865F2]"></div>
+                        <div class="relative w-full h-[2px] bg-[#5865F2] overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-[slideRight_3s_ease-in-out_infinite]" style="animation-delay: 1.5s;"></div>
+                        </div>
                     </div>
                     <div class="md:hidden flex justify-center">
-                        <div class="w-[2px] h-8 bg-[#5865F2]"></div>
+                        <div class="relative w-[2px] h-8 bg-[#5865F2] overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white to-transparent animate-[slideDown_3s_ease-in-out_infinite]" style="animation-delay: 1.5s;"></div>
+                        </div>
                     </div>
 
                     <!-- Step 3 -->
