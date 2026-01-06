@@ -146,20 +146,24 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* FAQ Accordion */
+        /* FAQ Accordion - using grid for smoother animation */
         .faq-answer {
-            max-height: 0;
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-            padding-top: 0;
-            padding-bottom: 0;
+        }
+        .faq-answer > div {
+            overflow: hidden;
         }
         .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding-bottom: 1.25rem;
+            grid-template-rows: 1fr;
         }
         .faq-item.active .faq-icon {
             transform: rotate(45deg);
+        }
+        .faq-icon {
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
 
@@ -843,6 +847,25 @@
                     from { transform: rotate(0deg); }
                     to { transform: rotate(360deg); }
                 }
+                /* Result cards use same animated border */
+                .result-card .animated-border {
+                    position: absolute;
+                    inset: -1px;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                    pointer-events: none;
+                    overflow: hidden;
+                }
+                .result-card:hover .animated-border {
+                    opacity: 1;
+                }
+                .result-card .animated-border::before {
+                    content: '';
+                    position: absolute;
+                    inset: -200%;
+                    background: conic-gradient(from 90deg at 50% 50%, transparent 0%, transparent 40%, #5865F2 50%, transparent 60%, transparent 100%);
+                    animation: spin-border 10s linear infinite;
+                }
             </style>
 
             <!-- 3x2 Grid of cards -->
@@ -1105,8 +1128,10 @@
             <div class="space-y-6">
 
                 <!-- Result 1: B2B Martech -->
-                <div class="group reveal">
-                    <div class="relative bg-[#0A0B10] border border-white/10 overflow-hidden transition-all duration-300 hover:border-[#5865F2]/40 hover:shadow-[0_0_30px_rgba(88,101,242,0.15)] hover:scale-[1.01]">
+                <div class="result-card group reveal">
+                    <div class="relative p-[1px]">
+                        <div class="animated-border"></div>
+                        <div class="relative bg-[#0A0B10] border border-white/10 overflow-hidden transition-all duration-500 group-hover:border-transparent">
                         <div class="flex flex-col md:flex-row">
                             <!-- Image (left) -->
                             <div class="md:w-[40%] aspect-[16/10] md:aspect-auto bg-gradient-to-br from-[#12131a] to-[#0A0B10] flex items-center justify-center relative overflow-hidden">
@@ -1136,35 +1161,39 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Result 2: AI Dev SaaS -->
-                <div class="group reveal">
-                    <div class="relative bg-[#0A0B10] border border-white/10 overflow-hidden transition-all duration-300 hover:border-[#5865F2]/40 hover:shadow-[0_0_30px_rgba(88,101,242,0.15)] hover:scale-[1.01]">
-                        <div class="flex flex-col md:flex-row">
-                            <div class="md:w-[40%] aspect-[16/10] md:aspect-auto bg-gradient-to-br from-[#12131a] to-[#0A0B10] flex items-center justify-center relative overflow-hidden">
-                                <div class="text-center py-12 md:py-0">
-                                    <span class="iconify text-white/10" data-icon="lucide:image" data-width="64"></span>
-                                    <p class="text-white/20 text-xs mt-3 uppercase tracking-wider">Ad Creative</p>
-                                </div>
-                            </div>
-                            <div class="md:w-[60%] p-8 md:p-12 flex flex-col justify-center">
-                                <div class="inline-block mb-8">
-                                    <span class="inline-flex items-center px-4 py-2 bg-[#5865F2]/10 border border-[#5865F2]/20 text-[#5865F2] text-xs uppercase tracking-widest font-medium">AI Software Development SaaS</span>
-                                </div>
-                                <div class="grid grid-cols-3 gap-4 md:gap-6">
-                                    <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
-                                        <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">4.2x</p>
-                                        <p class="text-white/50 text-sm">ROAS</p>
+                <div class="result-card group reveal">
+                    <div class="relative p-[1px]">
+                        <div class="animated-border"></div>
+                        <div class="relative bg-[#0A0B10] border border-white/10 overflow-hidden transition-all duration-500 group-hover:border-transparent">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-[40%] aspect-[16/10] md:aspect-auto bg-gradient-to-br from-[#12131a] to-[#0A0B10] flex items-center justify-center relative overflow-hidden">
+                                    <div class="text-center py-12 md:py-0">
+                                        <span class="iconify text-white/10" data-icon="lucide:image" data-width="64"></span>
+                                        <p class="text-white/20 text-xs mt-3 uppercase tracking-wider">Ad Creative</p>
                                     </div>
-                                    <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
-                                        <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">65%</p>
-                                        <p class="text-white/50 text-sm">Lower CPL</p>
+                                </div>
+                                <div class="md:w-[60%] p-8 md:p-12 flex flex-col justify-center">
+                                    <div class="inline-block mb-8">
+                                        <span class="inline-flex items-center px-4 py-2 bg-[#5865F2]/10 border border-[#5865F2]/20 text-[#5865F2] text-xs uppercase tracking-widest font-medium">AI Software Development SaaS</span>
                                     </div>
-                                    <div class="bg-white/[0.03] border border-white/[0.06] p-5 md:p-6">
-                                        <p class="text-3xl md:text-4xl font-serif text-brand-green leading-none mb-2">+$215k</p>
-                                        <p class="text-white/50 text-sm">ARR Added</p>
+                                    <div class="grid grid-cols-3 gap-4 md:gap-6">
+                                        <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
+                                            <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">4.2x</p>
+                                            <p class="text-white/50 text-sm">ROAS</p>
+                                        </div>
+                                        <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
+                                            <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">65%</p>
+                                            <p class="text-white/50 text-sm">Lower CPL</p>
+                                        </div>
+                                        <div class="bg-white/[0.03] border border-white/[0.06] p-5 md:p-6">
+                                            <p class="text-3xl md:text-4xl font-serif text-brand-green leading-none mb-2">+$215k</p>
+                                            <p class="text-white/50 text-sm">ARR Added</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1173,31 +1202,34 @@
                 </div>
 
                 <!-- Result 3: Data Enrichment -->
-                <div class="group reveal">
-                    <div class="relative bg-[#0A0B10] border border-white/10 overflow-hidden transition-all duration-300 hover:border-[#5865F2]/40 hover:shadow-[0_0_30px_rgba(88,101,242,0.15)] hover:scale-[1.01]">
-                        <div class="flex flex-col md:flex-row">
-                            <div class="md:w-[40%] aspect-[16/10] md:aspect-auto bg-gradient-to-br from-[#12131a] to-[#0A0B10] flex items-center justify-center relative overflow-hidden">
-                                <div class="text-center py-12 md:py-0">
-                                    <span class="iconify text-white/10" data-icon="lucide:layout-dashboard" data-width="64"></span>
-                                    <p class="text-white/20 text-xs mt-3 uppercase tracking-wider">CRM Dashboard</p>
-                                </div>
-                            </div>
-                            <div class="md:w-[60%] p-8 md:p-12 flex flex-col justify-center">
-                                <div class="inline-block mb-8">
-                                    <span class="inline-flex items-center px-4 py-2 bg-[#5865F2]/10 border border-[#5865F2]/20 text-[#5865F2] text-xs uppercase tracking-widest font-medium">B2B Data Enrichment Tool</span>
-                                </div>
-                                <div class="grid grid-cols-3 gap-4 md:gap-6">
-                                    <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
-                                        <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">3.2x</p>
-                                        <p class="text-white/50 text-sm">ROAS</p>
+                <div class="result-card group reveal">
+                    <div class="relative p-[1px]">
+                        <div class="animated-border"></div>
+                        <div class="relative bg-[#0A0B10] border border-white/10 overflow-hidden transition-all duration-500 group-hover:border-transparent">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-[40%] aspect-[16/10] md:aspect-auto bg-gradient-to-br from-[#12131a] to-[#0A0B10] flex items-center justify-center relative overflow-hidden">
+                                    <div class="text-center py-12 md:py-0">
+                                        <span class="iconify text-white/10" data-icon="lucide:layout-dashboard" data-width="64"></span>
+                                        <p class="text-white/20 text-xs mt-3 uppercase tracking-wider">CRM Dashboard</p>
                                     </div>
-                                    <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
-                                        <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">73%</p>
-                                        <p class="text-white/50 text-sm">Lower CPL</p>
+                                </div>
+                                <div class="md:w-[60%] p-8 md:p-12 flex flex-col justify-center">
+                                    <div class="inline-block mb-8">
+                                        <span class="inline-flex items-center px-4 py-2 bg-[#5865F2]/10 border border-[#5865F2]/20 text-[#5865F2] text-xs uppercase tracking-widest font-medium">B2B Data Enrichment Tool</span>
                                     </div>
-                                    <div class="bg-white/[0.03] border border-white/[0.06] p-5 md:p-6">
-                                        <p class="text-3xl md:text-4xl font-serif text-brand-green leading-none mb-2">+$180k</p>
-                                        <p class="text-white/50 text-sm">MRR Added</p>
+                                    <div class="grid grid-cols-3 gap-4 md:gap-6">
+                                        <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
+                                            <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">3.2x</p>
+                                            <p class="text-white/50 text-sm">ROAS</p>
+                                        </div>
+                                        <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
+                                            <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">73%</p>
+                                            <p class="text-white/50 text-sm">Lower CPL</p>
+                                        </div>
+                                        <div class="bg-white/[0.03] border border-white/[0.06] p-5 md:p-6">
+                                            <p class="text-3xl md:text-4xl font-serif text-brand-green leading-none mb-2">+$180k</p>
+                                            <p class="text-white/50 text-sm">MRR Added</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1206,31 +1238,34 @@
                 </div>
 
                 <!-- Result 4: Sales Automation -->
-                <div class="group reveal">
-                    <div class="relative bg-[#0A0B10] border border-white/10 overflow-hidden transition-all duration-300 hover:border-[#5865F2]/40 hover:shadow-[0_0_30px_rgba(88,101,242,0.15)] hover:scale-[1.01]">
-                        <div class="flex flex-col md:flex-row">
-                            <div class="md:w-[40%] aspect-[16/10] md:aspect-auto bg-gradient-to-br from-[#12131a] to-[#0A0B10] flex items-center justify-center relative overflow-hidden">
-                                <div class="text-center py-12 md:py-0">
-                                    <span class="iconify text-white/10" data-icon="lucide:message-square" data-width="64"></span>
-                                    <p class="text-white/20 text-xs mt-3 uppercase tracking-wider">Slack Message</p>
-                                </div>
-                            </div>
-                            <div class="md:w-[60%] p-8 md:p-12 flex flex-col justify-center">
-                                <div class="inline-block mb-8">
-                                    <span class="inline-flex items-center px-4 py-2 bg-[#5865F2]/10 border border-[#5865F2]/20 text-[#5865F2] text-xs uppercase tracking-widest font-medium">B2B Sales Automation SaaS</span>
-                                </div>
-                                <div class="grid grid-cols-3 gap-4 md:gap-6">
-                                    <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
-                                        <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">3.8x</p>
-                                        <p class="text-white/50 text-sm">Lower CAC</p>
+                <div class="result-card group reveal">
+                    <div class="relative p-[1px]">
+                        <div class="animated-border"></div>
+                        <div class="relative bg-[#0A0B10] border border-white/10 overflow-hidden transition-all duration-500 group-hover:border-transparent">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-[40%] aspect-[16/10] md:aspect-auto bg-gradient-to-br from-[#12131a] to-[#0A0B10] flex items-center justify-center relative overflow-hidden">
+                                    <div class="text-center py-12 md:py-0">
+                                        <span class="iconify text-white/10" data-icon="lucide:message-square" data-width="64"></span>
+                                        <p class="text-white/20 text-xs mt-3 uppercase tracking-wider">Slack Message</p>
                                     </div>
-                                    <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
-                                        <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">$48</p>
-                                        <p class="text-white/50 text-sm">Cost Per Demo</p>
+                                </div>
+                                <div class="md:w-[60%] p-8 md:p-12 flex flex-col justify-center">
+                                    <div class="inline-block mb-8">
+                                        <span class="inline-flex items-center px-4 py-2 bg-[#5865F2]/10 border border-[#5865F2]/20 text-[#5865F2] text-xs uppercase tracking-widest font-medium">B2B Sales Automation SaaS</span>
                                     </div>
-                                    <div class="bg-white/[0.03] border border-white/[0.06] p-5 md:p-6">
-                                        <p class="text-3xl md:text-4xl font-serif text-brand-green leading-none mb-2">+$410k</p>
-                                        <p class="text-white/50 text-sm">ARR Added</p>
+                                    <div class="grid grid-cols-3 gap-4 md:gap-6">
+                                        <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
+                                            <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">3.8x</p>
+                                            <p class="text-white/50 text-sm">Lower CAC</p>
+                                        </div>
+                                        <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
+                                            <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">$48</p>
+                                            <p class="text-white/50 text-sm">Cost Per Demo</p>
+                                        </div>
+                                        <div class="bg-white/[0.03] border border-white/[0.06] p-5 md:p-6">
+                                            <p class="text-3xl md:text-4xl font-serif text-brand-green leading-none mb-2">+$410k</p>
+                                            <p class="text-white/50 text-sm">ARR Added</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1239,31 +1274,34 @@
                 </div>
 
                 <!-- Result 5: AI GTM Platform -->
-                <div class="group reveal">
-                    <div class="relative bg-[#0A0B10] border border-white/10 overflow-hidden transition-all duration-300 hover:border-[#5865F2]/40 hover:shadow-[0_0_30px_rgba(88,101,242,0.15)] hover:scale-[1.01]">
-                        <div class="flex flex-col md:flex-row">
-                            <div class="md:w-[40%] aspect-[16/10] md:aspect-auto bg-gradient-to-br from-[#12131a] to-[#0A0B10] flex items-center justify-center relative overflow-hidden">
-                                <div class="text-center py-12 md:py-0">
-                                    <span class="iconify text-white/10" data-icon="lucide:play-circle" data-width="64"></span>
-                                    <p class="text-white/20 text-xs mt-3 uppercase tracking-wider">Video Ad</p>
-                                </div>
-                            </div>
-                            <div class="md:w-[60%] p-8 md:p-12 flex flex-col justify-center">
-                                <div class="inline-block mb-8">
-                                    <span class="inline-flex items-center px-4 py-2 bg-[#5865F2]/10 border border-[#5865F2]/20 text-[#5865F2] text-xs uppercase tracking-widest font-medium">B2B AI GTM Platform</span>
-                                </div>
-                                <div class="grid grid-cols-3 gap-4 md:gap-6">
-                                    <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
-                                        <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">68%</p>
-                                        <p class="text-white/50 text-sm">Lower CPL</p>
+                <div class="result-card group reveal">
+                    <div class="relative p-[1px]">
+                        <div class="animated-border"></div>
+                        <div class="relative bg-[#0A0B10] border border-white/10 overflow-hidden transition-all duration-500 group-hover:border-transparent">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-[40%] aspect-[16/10] md:aspect-auto bg-gradient-to-br from-[#12131a] to-[#0A0B10] flex items-center justify-center relative overflow-hidden">
+                                    <div class="text-center py-12 md:py-0">
+                                        <span class="iconify text-white/10" data-icon="lucide:play-circle" data-width="64"></span>
+                                        <p class="text-white/20 text-xs mt-3 uppercase tracking-wider">Video Ad</p>
                                     </div>
-                                    <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
-                                        <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">2.4x</p>
-                                        <p class="text-white/50 text-sm">Lower CAC</p>
+                                </div>
+                                <div class="md:w-[60%] p-8 md:p-12 flex flex-col justify-center">
+                                    <div class="inline-block mb-8">
+                                        <span class="inline-flex items-center px-4 py-2 bg-[#5865F2]/10 border border-[#5865F2]/20 text-[#5865F2] text-xs uppercase tracking-widest font-medium">B2B AI GTM Platform</span>
                                     </div>
-                                    <div class="bg-white/[0.03] border border-white/[0.06] p-5 md:p-6">
-                                        <p class="text-3xl md:text-4xl font-serif text-brand-green leading-none mb-2">+$95k</p>
-                                        <p class="text-white/50 text-sm">MRR Added</p>
+                                    <div class="grid grid-cols-3 gap-4 md:gap-6">
+                                        <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
+                                            <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">68%</p>
+                                            <p class="text-white/50 text-sm">Lower CPL</p>
+                                        </div>
+                                        <div class="bg-white/[0.02] border border-white/[0.04] p-5 md:p-6">
+                                            <p class="text-3xl md:text-4xl font-serif text-white leading-none mb-2">2.4x</p>
+                                            <p class="text-white/50 text-sm">Lower CAC</p>
+                                        </div>
+                                        <div class="bg-white/[0.03] border border-white/[0.06] p-5 md:p-6">
+                                            <p class="text-3xl md:text-4xl font-serif text-brand-green leading-none mb-2">+$95k</p>
+                                            <p class="text-white/50 text-sm">MRR Added</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1275,37 +1313,65 @@
         </section>
 
         <!-- Section 12: 3 Steps To Profitable Ads -->
-        <section class="container mx-auto px-6 max-w-5xl mb-20 md:mb-32">
+        <section class="container mx-auto px-6 max-w-6xl mb-20 md:mb-32">
             <div class="text-center mb-12 md:mb-16 reveal">
                 <h2 class="text-3xl md:text-5xl font-serif text-white tracking-tight mb-4">3 Steps To Profitable Ads...</h2>
                 <p class="text-white/60 text-lg max-w-2xl mx-auto">Here's exactly what happens when you work with us</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6 md:gap-8 reveal">
-                <!-- Step 1 -->
-                <div class="bg-[#0A0B10] border border-white/10 p-8 rounded-xl relative">
-                    <div class="absolute -top-4 left-8 bg-[#5865F2] text-white text-xs font-bold px-3 py-1 rounded-full">Step 1</div>
-                    <div class="pt-4">
-                        <h3 class="text-xl font-serif text-white mb-3">Book A Call</h3>
-                        <p class="text-white/60 text-sm leading-relaxed">Schedule a 30-minute discovery call with our team. We'll learn about your business, your goals, and determine if we're the right fit to help you scale profitably.</p>
-                    </div>
-                </div>
+            <!-- Roadmap-style steps with connecting lines -->
+            <div class="relative reveal">
+                <!-- Connecting line (desktop only) -->
+                <div class="hidden md:block absolute top-[60px] left-[16.67%] right-[16.67%] h-[2px] bg-gradient-to-r from-[#5865F2] via-[#5865F2]/50 to-[#5865F2]"></div>
 
-                <!-- Step 2 -->
-                <div class="bg-[#0A0B10] border border-white/10 p-8 rounded-xl relative">
-                    <div class="absolute -top-4 left-8 bg-[#5865F2] text-white text-xs font-bold px-3 py-1 rounded-full">Step 2</div>
-                    <div class="pt-4">
-                        <h3 class="text-xl font-serif text-white mb-3">Complimentary Audit</h3>
-                        <p class="text-white/60 text-sm leading-relaxed">We'll conduct a deep-dive audit of your current offer, ads, key metrics, funnels, and creatives. You'll walk away with actionable insights regardless of whether we work together.</p>
+                <div class="grid md:grid-cols-3 gap-8 md:gap-6">
+                    <!-- Step 1 -->
+                    <div class="relative">
+                        <!-- Step number circle -->
+                        <div class="flex justify-center mb-6">
+                            <div class="relative z-10 w-[120px] h-[120px] rounded-full bg-[#0A0B10] border-2 border-[#5865F2] flex items-center justify-center">
+                                <span class="text-5xl font-serif text-[#5865F2]">1</span>
+                            </div>
+                        </div>
+                        <!-- Card content -->
+                        <div class="bg-[#0A0B10] border border-white/10 p-8 h-full">
+                            <h3 class="text-2xl md:text-3xl font-serif text-white mb-4 text-center">Book A Call</h3>
+                            <p class="text-white/60 text-base leading-relaxed text-center">Schedule a 30-minute discovery call with our team. We'll learn about your business, your goals, and determine if we're the right fit to help you scale profitably.</p>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Step 3 -->
-                <div class="bg-[#0A0B10] border border-white/10 p-8 rounded-xl relative">
-                    <div class="absolute -top-4 left-8 bg-[#5865F2] text-white text-xs font-bold px-3 py-1 rounded-full">Step 3</div>
-                    <div class="pt-4">
-                        <h3 class="text-xl font-serif text-white mb-3">Granular Roadmap</h3>
-                        <p class="text-white/60 text-sm leading-relaxed">We'll map out exactly what needs to be done to get your ads live and profitable within 14 days - including offer positioning, creative strategy, funnel architecture, and targeting approach. No guesswork, just a clear path forward.</p>
+                    <!-- Step 2 -->
+                    <div class="relative">
+                        <!-- Mobile connecting line -->
+                        <div class="md:hidden absolute -top-4 left-1/2 -translate-x-1/2 w-[2px] h-8 bg-[#5865F2]"></div>
+                        <!-- Step number circle -->
+                        <div class="flex justify-center mb-6">
+                            <div class="relative z-10 w-[120px] h-[120px] rounded-full bg-[#0A0B10] border-2 border-[#5865F2] flex items-center justify-center">
+                                <span class="text-5xl font-serif text-[#5865F2]">2</span>
+                            </div>
+                        </div>
+                        <!-- Card content -->
+                        <div class="bg-[#0A0B10] border border-white/10 p-8 h-full">
+                            <h3 class="text-2xl md:text-3xl font-serif text-white mb-4 text-center">Complimentary Audit</h3>
+                            <p class="text-white/60 text-base leading-relaxed text-center">We'll conduct a deep-dive audit of your current offer, ads, key metrics, funnels, and creatives. You'll walk away with actionable insights regardless of whether we work together.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative">
+                        <!-- Mobile connecting line -->
+                        <div class="md:hidden absolute -top-4 left-1/2 -translate-x-1/2 w-[2px] h-8 bg-[#5865F2]"></div>
+                        <!-- Step number circle -->
+                        <div class="flex justify-center mb-6">
+                            <div class="relative z-10 w-[120px] h-[120px] rounded-full bg-[#0A0B10] border-2 border-[#5865F2] flex items-center justify-center">
+                                <span class="text-5xl font-serif text-[#5865F2]">3</span>
+                            </div>
+                        </div>
+                        <!-- Card content -->
+                        <div class="bg-[#0A0B10] border border-white/10 p-8 h-full">
+                            <h3 class="text-2xl md:text-3xl font-serif text-white mb-4 text-center">Granular Roadmap</h3>
+                            <p class="text-white/60 text-base leading-relaxed text-center">We'll map out exactly what needs to be done to get your ads live and profitable within 14 days - including offer positioning, creative strategy, funnel architecture, and targeting approach.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1314,8 +1380,8 @@
         <!-- Section 13: Final CTA -->
         <section id="book-call" class="container mx-auto px-6 max-w-6xl text-center mb-20 md:mb-32">
             <div class="glass-panel p-8 md:p-12 rounded-2xl border border-white/10 relative overflow-hidden reveal">
-                <h2 class="text-3xl md:text-4xl font-serif text-white tracking-tight mb-4 relative z-10">Let's Talk About Your Ad Funnel</h2>
-                <p class="text-white/60 text-center mb-8 max-w-2xl mx-auto relative z-10">
+                <h2 class="text-3xl md:text-4xl font-serif text-white tracking-tight mb-3 relative z-10">Let's Talk About Your Ad Funnel</h2>
+                <p class="text-white/60 text-center mb-4 max-w-2xl mx-auto relative z-10">
                     Book a call to discuss how we can help you acquire customers profitably.
                 </p>
                 <!-- Calendly inline widget -->
@@ -1325,7 +1391,7 @@
         </section>
 
         <!-- Section 15: FAQ -->
-        <section id="faq" class="container mx-auto px-6 max-w-3xl mb-20 md:mb-32">
+        <section id="faq" class="container mx-auto px-6 max-w-3xl mb-12 md:mb-16">
             <div class="mb-12 md:mb-16 md:text-center reveal">
                 <h2 class="text-3xl md:text-5xl font-serif text-white tracking-tight mb-6">Frequently Asked Questions</h2>
             </div>
@@ -1338,9 +1404,11 @@
                         <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <p class="text-white/80 text-base font-medium leading-relaxed">
-                            We only work with B2B SaaS companies. That's it. This means every framework, every creative angle, every optimization we've learned comes from companies like yours. We also own the entire funnel - ads, landing pages, VSL, email flows - so you're not coordinating between five different vendors.
-                        </p>
+                        <div class="pb-5">
+                            <p class="text-white/80 text-base font-medium leading-relaxed">
+                                We only work with B2B SaaS companies. That's it. This means every framework, every creative angle, every optimization we've learned comes from companies like yours. We also own the entire funnel - ads, landing pages, VSL, email flows - so you're not coordinating between five different vendors.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -1348,12 +1416,14 @@
                 <div class="faq-item rounded-xl bg-[#0A0B10] border border-white/10 overflow-hidden">
                     <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
                         <span class="text-white font-medium text-sm pr-4">How long until I see results?</span>
-                        <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
+                        <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <p class="text-white/80 text-base font-medium leading-relaxed">
-                            We launch campaigns within 14 days of kickoff. Most clients see their first booked demos within the first 7 days. Meaningful data on what's working usually comes by week 2-3. Full optimization and scaling typically happens over 6-8 weeks.
-                        </p>
+                        <div class="pb-5">
+                            <p class="text-white/80 text-base font-medium leading-relaxed">
+                                We launch campaigns within 14 days of kickoff. Most clients see their first booked demos within the first 7 days. Meaningful data on what's working usually comes by week 2-3. Full optimization and scaling typically happens over 6-8 weeks.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -1361,12 +1431,14 @@
                 <div class="faq-item rounded-xl bg-[#0A0B10] border border-white/10 overflow-hidden">
                     <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
                         <span class="text-white font-medium text-sm pr-4">What's the minimum ad spend required?</span>
-                        <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
+                        <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <p class="text-white/80 text-base font-medium leading-relaxed">
-                            We recommend a minimum of $200/day in ad spend. This gives us enough data to test creative angles, optimize campaigns, and scale what's working.
-                        </p>
+                        <div class="pb-5">
+                            <p class="text-white/80 text-base font-medium leading-relaxed">
+                                We recommend a minimum of $200/day in ad spend. This gives us enough data to test creative angles, optimize campaigns, and scale what's working.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -1374,12 +1446,14 @@
                 <div class="faq-item rounded-xl bg-[#0A0B10] border border-white/10 overflow-hidden">
                     <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
                         <span class="text-white font-medium text-sm pr-4">Do you work with PLG or self-serve companies?</span>
-                        <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
+                        <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <p class="text-white/80 text-base font-medium leading-relaxed">
-                            We primarily work with sales-led B2B SaaS. If your main GTM motion is 100% product led growth, we're probably not the right fit. If you have a sales team and want to drive more qualified demos, that's where we excel.
-                        </p>
+                        <div class="pb-5">
+                            <p class="text-white/80 text-base font-medium leading-relaxed">
+                                We primarily work with sales-led B2B SaaS. If your main GTM motion is 100% product led growth, we're probably not the right fit. If you have a sales team and want to drive more qualified demos, that's where we excel.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -1387,12 +1461,14 @@
                 <div class="faq-item rounded-xl bg-[#0A0B10] border border-white/10 overflow-hidden">
                     <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
                         <span class="text-white font-medium text-sm pr-4">What if I've tried paid ads before and they didn't work?</span>
-                        <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
+                        <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <p class="text-white/80 text-base font-medium leading-relaxed">
-                            Most B2B SaaS companies fail at paid ads for one of three reasons: wrong offer, wrong creative, or wrong funnel. We fix all three. We've worked with companies who burned through agencies before finding us - the difference is we understand B2B SaaS buying cycles and build everything around booking qualified demos, not vanity metrics.
-                        </p>
+                        <div class="pb-5">
+                            <p class="text-white/80 text-base font-medium leading-relaxed">
+                                Most B2B SaaS companies fail at paid ads for one of three reasons: wrong offer, wrong creative, or wrong funnel. We fix all three. We've worked with companies who burned through agencies before finding us - the difference is we understand B2B SaaS buying cycles and build everything around booking qualified demos, not vanity metrics.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -1400,12 +1476,14 @@
                 <div class="faq-item rounded-xl bg-[#0A0B10] border border-white/10 overflow-hidden">
                     <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
                         <span class="text-white font-medium text-sm pr-4">How involved do I need to be?</span>
-                        <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
+                        <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <p class="text-white/80 text-base font-medium leading-relaxed">
-                            During the first 2-3 weeks, we'll need more of your time - sales call recordings, offer feedback, creative approvals. After launch, it's typically a 30-minute call per week plus Slack for communication. We handle the execution.
-                        </p>
+                        <div class="pb-5">
+                            <p class="text-white/80 text-base font-medium leading-relaxed">
+                                During the first 2-3 weeks, we'll need more of your time - sales call recordings, offer feedback, creative approvals. After launch, it's typically a 30-minute call per week plus Slack for communication. We handle the execution.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -1413,12 +1491,14 @@
                 <div class="faq-item rounded-xl bg-[#0A0B10] border border-white/10 overflow-hidden">
                     <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
                         <span class="text-white font-medium text-sm pr-4">Do you handle creative production or do I need to film content?</span>
-                        <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
+                        <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <p class="text-white/80 text-base font-medium leading-relaxed">
-                            We handle everything - scripting, design, editing. For video ads and VSLs, we'll need you or your team to film the talking head portions. We provide the scripts and shot lists, you just need to spend 1 hour per month (approximately) on filming.
-                        </p>
+                        <div class="pb-5">
+                            <p class="text-white/80 text-base font-medium leading-relaxed">
+                                We handle everything - scripting, design, editing. For video ads and VSLs, we'll need you or your team to film the talking head portions. We provide the scripts and shot lists, you just need to spend 1 hour per month (approximately) on filming.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -1426,12 +1506,14 @@
                 <div class="faq-item rounded-xl bg-[#0A0B10] border border-white/10 overflow-hidden">
                     <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
                         <span class="text-white font-medium text-sm pr-4">What platforms do you run ads on?</span>
-                        <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
+                        <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <p class="text-white/80 text-base font-medium leading-relaxed">
-                            Primarily Meta (Facebook and Instagram). We've seen Meta have the lowest CAC, and highest ROAS across 60+ B2B SaaS clients we've worked with.
-                        </p>
+                        <div class="pb-5">
+                            <p class="text-white/80 text-base font-medium leading-relaxed">
+                                Primarily Meta (Facebook and Instagram). We've seen Meta have the lowest CAC, and highest ROAS across 60+ B2B SaaS clients we've worked with.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -1439,12 +1521,14 @@
                 <div class="faq-item rounded-xl bg-[#0A0B10] border border-white/10 overflow-hidden">
                     <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
                         <span class="text-white font-medium text-sm pr-4">How do you charge? What's the pricing model?</span>
-                        <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
+                        <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <p class="text-white/80 text-base font-medium leading-relaxed">
-                            We have setup, monthly, 3-month or 6-month plans depending on what you're looking for. Our pricing ranges from $5k - $30k across our plans and offers. We can share specific pricing on a call once we understand your situation.
-                        </p>
+                        <div class="pb-5">
+                            <p class="text-white/80 text-base font-medium leading-relaxed">
+                                We have setup, monthly, 3-month or 6-month plans depending on what you're looking for. Our pricing ranges from $5k - $30k across our plans and offers. We can share specific pricing on a call once we understand your situation.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -1452,12 +1536,14 @@
                 <div class="faq-item rounded-xl bg-[#0A0B10] border border-white/10 overflow-hidden">
                     <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
                         <span class="text-white font-medium text-sm pr-4">Do I own everything you create?</span>
-                        <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
+                        <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <p class="text-white/80 text-base font-medium leading-relaxed">
-                            Yes. All landing pages, VSL scripts, ad creatives, email flows - everything we build is yours. If we part ways, you keep all assets and can continue running campaigns yourself.
-                        </p>
+                        <div class="pb-5">
+                            <p class="text-white/80 text-base font-medium leading-relaxed">
+                                Yes. All landing pages, VSL scripts, ad creatives, email flows - everything we build is yours. If we part ways, you keep all assets and can continue running campaigns yourself.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -1465,21 +1551,26 @@
                 <div class="faq-item rounded-xl bg-[#0A0B10] border border-white/10 overflow-hidden">
                     <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
                         <span class="text-white font-medium text-sm pr-4">What if it doesn't work?</span>
-                        <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
+                        <span class="iconify faq-icon text-white/40 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
                     <div class="faq-answer px-6">
-                        <p class="text-white/80 text-base font-medium leading-relaxed">
-                            Our goal is to make you profitable within 90 days. So we guarantee results, and offer a full refund if results are not met. If we've done our job and you've held up your end (ad spend, timely approvals, following our process), you will see results.
-                        </p>
+                        <div class="pb-5">
+                            <p class="text-white/80 text-base font-medium leading-relaxed">
+                                Our goal is to make you profitable within 90 days. So we guarantee results, and offer a full refund if results are not met. If we've done our job and you've held up your end (ad spend, timely approvals, following our process), you will see results.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- CTA Button after FAQs -->
-            <div class="text-center mt-12 reveal">
-                <a href="#book-call" class="inline-flex items-center justify-center gap-2 bg-white text-brand-dark px-8 py-4 rounded-full text-sm font-semibold hover:bg-brand-green hover:text-white transition-all duration-300 shadow-xl shadow-white/5">
-                    We'll Audit Your Ads
-                    <span class="iconify" data-icon="lucide:arrow-up" data-width="16"></span>
+            <div class="text-center mt-8 reveal">
+                <a href="#book-call" class="group relative inline-flex items-center justify-center overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-brand-dark">
+                    <span class="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#5865F2_0%,#00D9A5_25%,#5865F2_50%,#00D9A5_75%,#5865F2_100%)]"></span>
+                    <span class="inline-flex h-full w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-medium text-brand-dark backdrop-blur-3xl transition-all group-hover:bg-brand-green group-hover:text-white">
+                        We'll Audit Your Ads
+                        <span class="iconify group-hover:translate-y-[-2px] transition-transform" data-icon="lucide:arrow-up" data-width="16"></span>
+                    </span>
                 </a>
             </div>
         </section>
@@ -1494,7 +1585,7 @@
                     <img src="airr-digital-logo-white.png" alt="Airr Digital" class="h-5">
                 </a>
 
-                <span class="text-white/30 text-xs">© 2026 Airr Digital. All rights reserved.</span>
+                <span class="text-white/30 text-xs">Copyright © 2026 Airr Digital LTD. All Rights Reserved.</span>
             </div>
         </div>
     </footer>
