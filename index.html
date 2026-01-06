@@ -170,23 +170,10 @@
         }
 
         /* Timeline Scroll Animation */
-        .timeline-step.active .timeline-number {
-            color: #5865F2;
-        }
         .timeline-step.active .timeline-title {
             color: #5865F2;
         }
-        .timeline-step.active .timeline-circle {
-            stroke-dashoffset: 0;
-        }
-        .timeline-step.active .timeline-connector {
-            height: calc(100% + 3rem);
-        }
-        @media (min-width: 768px) {
-            .timeline-step.active .timeline-connector {
-                height: calc(100% + 4rem);
-            }
-        }
+        /* Circle stroke, connector height, and number color now controlled by JavaScript for smooth scroll-based animation */
     </style>
 </head>
 
@@ -588,7 +575,7 @@
                             <!-- Connector line going DOWN from this circle (grey background) -->
                             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-[calc(100%+3rem)] md:h-[calc(100%+4rem)] bg-white/10 timeline-connector-bg"></div>
                             <!-- Connector line going DOWN from this circle (blue animated) -->
-                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-0 bg-brand-green timeline-connector transition-all duration-300"></div>
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-0 bg-brand-green timeline-connector"></div>
                             <!-- Circle container -->
                             <div class="relative w-10 h-10 md:w-12 md:h-12">
                                 <!-- Grey background circle -->
@@ -599,7 +586,7 @@
                                 <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
                                     <circle cx="24" cy="24" r="22" fill="none" stroke="#5865F2" stroke-width="2"
                                             stroke-dasharray="138.23" stroke-dashoffset="138.23"
-                                            class="timeline-circle transition-all duration-500"/>
+                                            class="timeline-circle"/>
                                 </svg>
                                 <!-- Number -->
                                 <span class="absolute inset-0 flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">1</span>
@@ -621,7 +608,7 @@
                             <!-- Connector line going DOWN from this circle (grey background) -->
                             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-[calc(100%+3rem)] md:h-[calc(100%+4rem)] bg-white/10 timeline-connector-bg"></div>
                             <!-- Connector line going DOWN from this circle (blue animated) -->
-                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-0 bg-brand-green timeline-connector transition-all duration-300"></div>
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-0 bg-brand-green timeline-connector"></div>
                             <!-- Circle container -->
                             <div class="relative w-10 h-10 md:w-12 md:h-12">
                                 <!-- Grey background circle -->
@@ -632,7 +619,7 @@
                                 <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
                                     <circle cx="24" cy="24" r="22" fill="none" stroke="#5865F2" stroke-width="2"
                                             stroke-dasharray="138.23" stroke-dashoffset="138.23"
-                                            class="timeline-circle transition-all duration-500"/>
+                                            class="timeline-circle"/>
                                 </svg>
                                 <!-- Number -->
                                 <span class="absolute inset-0 flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">2</span>
@@ -654,7 +641,7 @@
                             <!-- Connector line going DOWN from this circle (grey background) -->
                             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-[calc(100%+3rem)] md:h-[calc(100%+4rem)] bg-white/10 timeline-connector-bg"></div>
                             <!-- Connector line going DOWN from this circle (blue animated) -->
-                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-0 bg-brand-green timeline-connector transition-all duration-300"></div>
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-0 bg-brand-green timeline-connector"></div>
                             <!-- Circle container -->
                             <div class="relative w-10 h-10 md:w-12 md:h-12">
                                 <!-- Grey background circle -->
@@ -665,7 +652,7 @@
                                 <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
                                     <circle cx="24" cy="24" r="22" fill="none" stroke="#5865F2" stroke-width="2"
                                             stroke-dasharray="138.23" stroke-dashoffset="138.23"
-                                            class="timeline-circle transition-all duration-500"/>
+                                            class="timeline-circle"/>
                                 </svg>
                                 <!-- Number -->
                                 <span class="absolute inset-0 flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">3</span>
@@ -687,7 +674,7 @@
                             <!-- Connector line going DOWN from this circle (grey background) -->
                             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-[calc(100%+3rem)] md:h-[calc(100%+4rem)] bg-white/10 timeline-connector-bg"></div>
                             <!-- Connector line going DOWN from this circle (blue animated) -->
-                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-0 bg-brand-green timeline-connector transition-all duration-300"></div>
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[2px] h-0 bg-brand-green timeline-connector"></div>
                             <!-- Circle container -->
                             <div class="relative w-10 h-10 md:w-12 md:h-12">
                                 <!-- Grey background circle -->
@@ -698,7 +685,7 @@
                                 <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
                                     <circle cx="24" cy="24" r="22" fill="none" stroke="#5865F2" stroke-width="2"
                                             stroke-dasharray="138.23" stroke-dashoffset="138.23"
-                                            class="timeline-circle transition-all duration-500"/>
+                                            class="timeline-circle"/>
                                 </svg>
                                 <!-- Number -->
                                 <span class="absolute inset-0 flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">4</span>
@@ -728,7 +715,7 @@
                                 <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
                                     <circle cx="24" cy="24" r="22" fill="none" stroke="#5865F2" stroke-width="2"
                                             stroke-dasharray="138.23" stroke-dashoffset="138.23"
-                                            class="timeline-circle transition-all duration-500"/>
+                                            class="timeline-circle"/>
                                 </svg>
                                 <!-- Number -->
                                 <span class="absolute inset-0 flex items-center justify-center text-lg md:text-xl font-serif text-white/40 timeline-number transition-all duration-300">5</span>
@@ -1426,7 +1413,7 @@
             });
         });
 
-        // Timeline scroll animation
+        // Timeline scroll animation - smooth progressive
         function updateTimeline() {
             const section = document.getElementById('how-it-works');
             const steps = document.querySelectorAll('.timeline-step');
@@ -1434,13 +1421,44 @@
 
             if (!section || steps.length === 0) return;
 
-            // Activate steps based on their position
+            const triggerPoint = windowHeight * 0.6; // Where animation starts for each step
+            const animationRange = windowHeight * 0.3; // How much scroll to complete animation
+
             steps.forEach((step, index) => {
                 const stepRect = step.getBoundingClientRect();
-                const stepTop = stepRect.top;
+                const circle = step.querySelector('.timeline-circle');
+                const connector = step.querySelector('.timeline-connector');
+                const number = step.querySelector('.timeline-number');
 
-                // Activate when step top passes the 50% viewport point
-                if (stepTop < windowHeight * 0.5) {
+                // Calculate progress for this step (0 to 1)
+                const distanceFromTrigger = triggerPoint - stepRect.top;
+                const progress = Math.max(0, Math.min(1, distanceFromTrigger / animationRange));
+
+                // Animate circle stroke (138.23 is circumference of r=22 circle)
+                if (circle) {
+                    const circumference = 138.23;
+                    circle.style.strokeDashoffset = circumference * (1 - progress);
+                }
+
+                // Animate connector line height
+                if (connector) {
+                    const maxHeight = window.innerWidth >= 768 ? 'calc(100% + 4rem)' : 'calc(100% + 3rem)';
+                    connector.style.height = progress >= 1 ? maxHeight : (progress * 100) + '%';
+                }
+
+                // Animate number color (grey to blue)
+                if (number) {
+                    if (progress > 0.5) {
+                        const blueOpacity = 0.4 + (progress * 0.6);
+                        number.style.color = `rgba(88, 101, 242, ${blueOpacity})`;
+                    } else {
+                        const greyOpacity = 0.4 + (progress * 0.2);
+                        number.style.color = `rgba(255, 255, 255, ${greyOpacity})`;
+                    }
+                }
+
+                // Add/remove active class for title color
+                if (progress > 0.5) {
                     step.classList.add('active');
                 } else {
                     step.classList.remove('active');
