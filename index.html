@@ -60,6 +60,22 @@
                         },
                         dash: {
                             'to': { strokeDashoffset: '24' }
+                        },
+                        slideRight: {
+                            '0%': { left: '-80px' },
+                            '100%': { left: '100%' }
+                        },
+                        slideLeft: {
+                            '0%': { left: '100%' },
+                            '100%': { left: '-80px' }
+                        },
+                        slideDown: {
+                            '0%': { top: '-60px' },
+                            '100%': { top: '100%' }
+                        },
+                        slideUp: {
+                            '0%': { top: '100%' },
+                            '100%': { top: '-60px' }
                         }
                     }
                 }
@@ -102,6 +118,19 @@
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                               linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        /* Hide grid pattern behind logo section only */
+        .no-grid-behind {
+            position: relative;
+            isolation: isolate;
+        }
+        .no-grid-behind::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: #020204;
+            z-index: -1;
         }
 
         /* Custom Scrollbar */
@@ -211,70 +240,96 @@
                 </div>
 
                 <!-- 5x3 Logo Grid - gradient bg covers grid pattern only on this box -->
+                <style>
+                    .client-logo {
+                        height: 22px;
+                        width: auto;
+                        max-width: 110px;
+                        object-fit: contain;
+                        opacity: 0.6;
+                        filter: brightness(0) invert(1);
+                        transition: opacity 0.3s ease, filter 0.3s ease;
+                    }
+                    .client-logo:hover {
+                        opacity: 1;
+                        filter: brightness(0) invert(1);
+                    }
+                    @media (min-width: 768px) {
+                        .client-logo {
+                            height: 26px;
+                            max-width: 130px;
+                        }
+                    }
+                </style>
                 <div class="max-w-5xl mx-auto px-6">
-                    <div class="relative grid grid-cols-3 md:grid-cols-5 border border-white/10 bg-gradient-to-b from-[#060810] via-[#080a12] to-[#060810]">
+                    <!-- Animated border wrapper -->
+                    <div class="relative p-[1px] overflow-hidden">
+                        <div class="absolute inset-[-200%] animate-[spin_6s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_40%,#5865F2_50%,transparent_60%,transparent_100%)]"></div>
+                        <!-- Inner grid container -->
+                        <div class="relative grid grid-cols-3 md:grid-cols-5 no-grid-behind bg-[#020204]">
                         <!-- Row 1 -->
                         <div class="py-7 md:py-8 px-4 flex items-center justify-center border-r border-b border-white/10">
-                            <span class="text-base md:text-lg font-medium text-white/50 text-center">Instantly.ai</span>
+                            <img src="logos/instantly.svg" alt="Instantly.ai" class="client-logo">
                         </div>
                         <div class="py-7 md:py-8 px-4 flex items-center justify-center border-r border-b border-white/10">
-                            <span class="text-base md:text-lg font-medium text-white/50 text-center">ListKit</span>
+                            <img src="logos/listkit.webp" alt="ListKit" class="client-logo">
                         </div>
                         <div class="py-7 md:py-8 px-4 flex items-center justify-center md:border-r border-b border-white/10">
-                            <span class="text-sm md:text-base font-medium text-white/50 text-center tracking-widest uppercase">TxtCart</span>
+                            <img src="logos/txtcart.svg" alt="TxtCart" class="client-logo">
                         </div>
                         <div class="py-7 md:py-8 px-4 hidden md:flex items-center justify-center border-r border-b border-white/10">
-                            <span class="text-base md:text-lg font-serif italic text-white/50 text-center">Trustworthy</span>
+                            <img src="logos/trustworthy.svg" alt="Trustworthy" class="client-logo">
                         </div>
                         <div class="py-7 md:py-8 px-4 hidden md:flex items-center justify-center border-b border-white/10">
-                            <span class="text-base md:text-lg font-medium text-white/50 text-center">Buddy Punch</span>
+                            <img src="logos/buddypunch.svg" alt="Buddy Punch" class="client-logo">
                         </div>
 
                         <!-- Row 2 -->
                         <div class="py-7 md:py-8 px-4 flex items-center justify-center border-r border-b border-white/10">
-                            <span class="text-base md:text-lg font-medium text-white/50 text-center">Float</span>
+                            <img src="logos/float.svg" alt="Float" class="client-logo">
                         </div>
                         <div class="py-7 md:py-8 px-4 flex items-center justify-center border-r border-b border-white/10">
-                            <span class="text-base md:text-lg font-semibold text-white/50 text-center">Simplesat</span>
+                            <img src="logos/simplesat.svg" alt="Simplesat" class="client-logo">
                         </div>
                         <div class="py-7 md:py-8 px-4 flex items-center justify-center md:border-r border-b border-white/10">
-                            <span class="text-xs md:text-sm font-medium text-white/50 text-center tracking-widest uppercase">Growthspace</span>
+                            <img src="logos/growthspace.svg" alt="Growthspace" class="client-logo">
                         </div>
                         <div class="py-7 md:py-8 px-4 hidden md:flex items-center justify-center border-r border-b border-white/10">
-                            <span class="text-base md:text-lg font-serif italic text-white/50 text-center">Submagic</span>
+                            <img src="logos/submagic.svg" alt="Submagic" class="client-logo">
                         </div>
                         <div class="py-7 md:py-8 px-4 hidden md:flex items-center justify-center border-b border-white/10">
-                            <span class="text-base md:text-lg font-medium text-white/50 text-center">Inframail</span>
+                            <img src="logos/dittofi.svg" alt="Dittofi" class="client-logo">
                         </div>
 
                         <!-- Row 3 -->
                         <div class="py-7 md:py-8 px-4 flex items-center justify-center border-r border-white/10 md:border-b-0">
-                            <span class="text-base md:text-lg font-semibold text-white/50 text-center">Promotix</span>
+                            <img src="logos/promotix.png" alt="Promotix" class="client-logo">
                         </div>
                         <div class="py-7 md:py-8 px-4 flex items-center justify-center border-r border-white/10 md:border-b-0">
-                            <span class="text-xs md:text-sm font-medium text-white/50 text-center tracking-widest uppercase">BookYourData</span>
+                            <img src="logos/instant.svg" alt="Instant" class="client-logo">
                         </div>
                         <div class="py-7 md:py-8 px-4 flex items-center justify-center md:border-r border-white/10 md:border-b-0">
-                            <span class="text-base md:text-lg font-medium text-white/50 text-center">UpNotify</span>
+                            <img src="logos/appmysite.svg" alt="AppMySite" class="client-logo">
                         </div>
                         <div class="py-7 md:py-8 px-4 hidden md:flex items-center justify-center border-r border-white/10">
-                            <span class="text-base md:text-lg font-medium text-white/50 text-center">ProductHQ</span>
+                            <img src="logos/roomai.svg" alt="Room AI" class="client-logo">
                         </div>
                         <div class="py-7 md:py-8 px-4 hidden md:flex items-center justify-center">
-                            <span class="text-base md:text-lg font-semibold text-white/50 text-center">SmartLead</span>
+                            <img src="logos/plannerly.svg" alt="Plannerly" class="client-logo">
                         </div>
                     </div>
+                </div>
 
                     <!-- Mobile: Additional row -->
-                    <div class="md:hidden grid grid-cols-3 border-x border-b border-white/10">
+                    <div class="md:hidden grid grid-cols-3 border-x border-b border-white/10 no-grid-behind">
                         <div class="py-7 px-4 flex items-center justify-center border-r border-white/10">
-                            <span class="text-base font-serif italic text-white/50 text-center">Trustworthy</span>
+                            <img src="logos/trustworthy.svg" alt="Trustworthy" class="client-logo">
                         </div>
                         <div class="py-7 px-4 flex items-center justify-center border-r border-white/10">
-                            <span class="text-base font-medium text-white/50 text-center">Buddy Punch</span>
+                            <img src="logos/buddypunch.svg" alt="Buddy Punch" class="client-logo">
                         </div>
                         <div class="py-7 px-4 flex items-center justify-center">
-                            <span class="text-base font-serif italic text-white/50 text-center">Submagic</span>
+                            <img src="logos/submagic.svg" alt="Submagic" class="client-logo">
                         </div>
                     </div>
                 </div>
