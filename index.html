@@ -105,6 +105,25 @@
             filter: blur(0);
         }
 
+        /* --- Hero Load Animation --- */
+        .hero-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(8px);
+        }
+        .hero-animate.loaded {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hero-animate.loaded.delay-1 { transition-delay: 0.1s; }
+        .hero-animate.loaded.delay-2 { transition-delay: 0.2s; }
+        .hero-animate.loaded.delay-3 { transition-delay: 0.3s; }
+        .hero-animate.loaded.delay-4 { transition-delay: 0.4s; }
+
         /* --- Custom UI Elements --- */
         .glass-panel {
             background: linear-gradient(180deg, rgba(88, 101, 242, 0.03) 0%, rgba(255,255,255,0.01) 100%);
@@ -222,8 +241,8 @@
 
         <!-- Section 2: Hero -->
         <section class="container mx-auto px-6 max-w-6xl text-center mb-16 md:mb-24 relative">
-            <div class="reveal active flex flex-col items-center">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-green/20 bg-brand-green/5 backdrop-blur-sm mb-6 md:mb-8">
+            <div class="flex flex-col items-center">
+                <div class="hero-animate delay-1 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-green/20 bg-brand-green/5 backdrop-blur-sm mb-6 md:mb-8">
                     <span class="relative flex h-2 w-2">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-brand-green"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-green"></span>
@@ -231,19 +250,19 @@
                     <span class="text-[10px] md:text-[11px] font-medium text-brand-green tracking-wide uppercase">For B2B SaaS & Tech Companies Above $500k ARR</span>
                 </div>
 
-                <h1 class="text-4xl sm:text-5xl md:text-7xl font-serif text-white tracking-tight leading-[1.05] mb-6 md:mb-8 max-w-5xl">
+                <h1 class="hero-animate delay-2 text-4xl sm:text-5xl md:text-7xl font-serif text-white tracking-tight leading-[1.05] mb-6 md:mb-8 max-w-5xl">
                     We Help B2B SaaS Companies <span class="text-gradient">Acquire Customers Profitably</span> On Ads, Halve Their CAC And Add <span class="text-gradient italic">$1M+ ARR</span> Within 12 Weeks
                 </h1>
 
-                <p class="text-lg md:text-xl font-medium text-white/80 max-w-2xl leading-relaxed mb-8 md:mb-10 mx-auto">
+                <p class="hero-animate delay-3 text-lg md:text-xl font-medium text-white/80 max-w-2xl leading-relaxed mb-8 md:mb-10 mx-auto">
                     By implementing a full-funnel paid acquisition system, that generates leads, books qualified demos and acquires customers at a 3x ROAS or better.
                 </p>
 
-                <div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center px-4">
+                <div class="hero-animate delay-4 flex flex-col sm:flex-row items-center gap-4 w-full justify-center px-4">
                     <a href="#book-call" class="w-full sm:w-auto group relative inline-flex items-center justify-center overflow-hidden p-[2px] focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-brand-dark">
                         <span class="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#5865F2_0%,#00D9A5_25%,#5865F2_50%,#00D9A5_75%,#5865F2_100%)]"></span>
                         <span class="inline-flex h-full w-full cursor-pointer items-center justify-center gap-3 bg-white px-10 py-4 font-cta text-sm font-semibold tracking-wide uppercase text-brand-dark backdrop-blur-3xl transition-all group-hover:bg-brand-green group-hover:text-white">
-                            Book Your Strategy Call
+                            Let's Talk About Your Ads
                             <span class="iconify group-hover:translate-x-0.5 transition-transform" data-icon="lucide:arrow-right" data-width="18"></span>
                         </span>
                     </a>
@@ -450,7 +469,7 @@
             <!-- CTA -->
             <div class="text-center mt-12 md:mt-16 reveal">
                 <a href="#book-call" class="inline-flex items-center justify-center gap-3 bg-white text-brand-dark px-10 py-4 font-cta text-sm font-semibold tracking-wide uppercase hover:bg-brand-green hover:text-white transition-all duration-300">
-                    See If We're A Fit
+                    Book A Call
                     <span class="iconify" data-icon="lucide:arrow-right" data-width="18"></span>
                 </a>
             </div>
@@ -494,9 +513,9 @@
                             </ul>
 
                             <!-- CTA -->
-                            <a href="#book" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-brand-dark text-sm font-medium rounded-full hover:bg-brand-green hover:text-white transition-colors">
-                                Drop my CPA
-                                <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+                            <a href="#book-call" class="inline-flex items-center gap-3 bg-white text-brand-dark px-8 py-3 font-cta text-sm font-semibold tracking-wide uppercase hover:bg-brand-green hover:text-white transition-all duration-300">
+                                Get Results Like These
+                                <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span>
                             </a>
                         </div>
                         <!-- Image Placeholder -->
@@ -536,9 +555,9 @@
                             </ul>
 
                             <!-- CTA -->
-                            <a href="#book" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-brand-dark text-sm font-medium rounded-full hover:bg-brand-green hover:text-white transition-colors">
-                                Drop my CPA
-                                <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+                            <a href="#book-call" class="inline-flex items-center gap-3 bg-white text-brand-dark px-8 py-3 font-cta text-sm font-semibold tracking-wide uppercase hover:bg-brand-green hover:text-white transition-all duration-300">
+                                Get Results Like These
+                                <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span>
                             </a>
                         </div>
                         <!-- Image Placeholder -->
@@ -578,9 +597,9 @@
                             </ul>
 
                             <!-- CTA -->
-                            <a href="#book" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-brand-dark text-sm font-medium rounded-full hover:bg-brand-green hover:text-white transition-colors">
-                                Drop my CPA
-                                <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+                            <a href="#book-call" class="inline-flex items-center gap-3 bg-white text-brand-dark px-8 py-3 font-cta text-sm font-semibold tracking-wide uppercase hover:bg-brand-green hover:text-white transition-all duration-300">
+                                Get Results Like These
+                                <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span>
                             </a>
                         </div>
                         <!-- Image Placeholder -->
@@ -620,9 +639,9 @@
                             </ul>
 
                             <!-- CTA -->
-                            <a href="#book" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-brand-dark text-sm font-medium rounded-full hover:bg-brand-green hover:text-white transition-colors">
-                                Drop my CPA
-                                <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+                            <a href="#book-call" class="inline-flex items-center gap-3 bg-white text-brand-dark px-8 py-3 font-cta text-sm font-semibold tracking-wide uppercase hover:bg-brand-green hover:text-white transition-all duration-300">
+                                Get Results Like These
+                                <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span>
                             </a>
                         </div>
                         <!-- Image Placeholder -->
@@ -811,7 +830,7 @@
                 <!-- CTA -->
                 <div class="text-center mt-12 md:mt-16">
                     <a href="#book-call" class="inline-flex items-center justify-center gap-3 bg-white text-brand-dark px-10 py-4 font-cta text-sm font-semibold tracking-wide uppercase hover:bg-brand-green hover:text-white transition-all duration-300">
-                        Start Your 30 Days
+                        Book A Meeting
                         <span class="iconify" data-icon="lucide:arrow-right" data-width="18"></span>
                     </a>
                 </div>
@@ -1141,7 +1160,7 @@
             <!-- CTA -->
             <div class="text-center mt-12 md:mt-16 reveal">
                 <a href="#book-call" class="inline-flex items-center justify-center gap-3 bg-white text-brand-dark px-10 py-4 font-cta text-sm font-semibold tracking-wide uppercase hover:bg-brand-green hover:text-white transition-all duration-300">
-                    Get This For Your Business
+                    Book A Call
                     <span class="iconify" data-icon="lucide:arrow-right" data-width="18"></span>
                 </a>
             </div>
@@ -1413,7 +1432,7 @@
             <!-- CTA -->
             <div class="text-center mt-12 md:mt-16 reveal">
                 <a href="#book-call" class="inline-flex items-center justify-center gap-3 bg-white text-brand-dark px-10 py-4 font-cta text-sm font-semibold tracking-wide uppercase hover:bg-brand-green hover:text-white transition-all duration-300">
-                    Start With Step One
+                    Book A Meeting
                     <span class="iconify" data-icon="lucide:arrow-right" data-width="18"></span>
                 </a>
             </div>
@@ -1585,12 +1604,9 @@
 
             <!-- CTA Button after FAQs -->
             <div class="text-center mt-8 reveal">
-                <a href="#book-call" class="group relative inline-flex items-center justify-center overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-brand-dark">
-                    <span class="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#5865F2_0%,#00D9A5_25%,#5865F2_50%,#00D9A5_75%,#5865F2_100%)]"></span>
-                    <span class="inline-flex h-full w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-medium text-brand-dark backdrop-blur-3xl transition-all group-hover:bg-brand-green group-hover:text-white">
-                        We'll Audit Your Ads
-                        <span class="iconify group-hover:translate-y-[-2px] transition-transform" data-icon="lucide:arrow-up" data-width="16"></span>
-                    </span>
+                <a href="#book-call" class="inline-flex items-center justify-center gap-3 bg-white text-brand-dark px-10 py-4 font-cta text-sm font-semibold tracking-wide uppercase hover:bg-brand-green hover:text-white transition-all duration-300">
+                    Book A Meeting
+                    <span class="iconify" data-icon="lucide:arrow-right" data-width="18"></span>
                 </a>
             </div>
         </section>
@@ -1611,6 +1627,15 @@
     </footer>
 
     <script>
+        // Hero Load Animation - triggers on page load with slight delay
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.hero-animate').forEach(el => {
+                    el.classList.add('loaded');
+                });
+            }, 100);
+        });
+
         // Scroll Reveal Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
