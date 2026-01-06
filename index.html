@@ -808,48 +808,67 @@
         </section>
 
         <!-- Section 10: Everything You Get -->
-        <section class="mb-20 md:mb-32 overflow-hidden">
+        <section class="mb-20 md:mb-32 container mx-auto px-6 max-w-6xl">
             <!-- Header -->
-            <div class="container mx-auto px-6 max-w-6xl text-center mb-16 md:mb-24 reveal">
+            <div class="text-center mb-16 md:mb-20 reveal">
                 <h2 class="text-3xl md:text-5xl lg:text-6xl font-serif text-white tracking-tight mb-6">Everything You Get From Working With Us</h2>
                 <p class="text-white/50 text-lg md:text-xl max-w-2xl mx-auto">Managed outcomes by a team that understands demand generation.</p>
             </div>
 
-            <!-- Horizontal scrolling cards with staggered animation -->
-            <div class="relative">
-                <!-- Gradient fade on edges -->
-                <div class="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-[#020204] to-transparent z-10 pointer-events-none"></div>
-                <div class="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-[#020204] to-transparent z-10 pointer-events-none"></div>
+            <!-- CSS for animated border on hover -->
+            <style>
+                .deliverable-card .animated-border {
+                    position: absolute;
+                    inset: -1px;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                    pointer-events: none;
+                    overflow: hidden;
+                }
+                .deliverable-card:hover .animated-border {
+                    opacity: 1;
+                }
+                .deliverable-card .animated-border::before {
+                    content: '';
+                    position: absolute;
+                    inset: -200%;
+                    background: conic-gradient(from 90deg at 50% 50%, transparent 0%, transparent 40%, #5865F2 50%, transparent 60%, transparent 100%);
+                    animation: spin-border 4s linear infinite;
+                }
+                @keyframes spin-border {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+            </style>
 
-                <!-- Scrolling container -->
-                <div class="flex gap-6 px-6 md:px-12 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
-                    <style>.scrollbar-hide::-webkit-scrollbar { display: none; }</style>
+            <!-- 3x2 Grid of cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                    <!-- Card 1: Strategy -->
-                    <div class="deliverable-card group flex-shrink-0 w-[320px] md:w-[380px] snap-center">
-                        <div class="relative h-full bg-[#0A0B10] border border-white/10 p-8 md:p-10 transition-all duration-500 hover:border-brand-green/30 hover:bg-[#0d0e14]">
-                            <!-- Animated corner accents -->
-                            <div class="absolute top-0 left-0 w-8 h-8 border-t border-l border-white/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-brand-green/50"></div>
-                            <div class="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-white/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-brand-green/50"></div>
-
+                <!-- Card 1: Strategy -->
+                <div class="deliverable-card group reveal">
+                    <div class="relative p-[1px] h-full">
+                        <!-- Animated border (only visible on hover) -->
+                        <div class="animated-border"></div>
+                        <!-- Card content -->
+                        <div class="relative h-full bg-[#0A0B10] border border-white/10 p-8 transition-all duration-500 group-hover:border-transparent group-hover:bg-[#0d0e14]">
                             <!-- Large number background -->
-                            <span class="absolute top-4 right-6 text-[120px] md:text-[160px] font-serif text-white/[0.03] leading-none select-none transition-all duration-500 group-hover:text-brand-green/[0.06]">01</span>
+                            <span class="absolute top-4 right-6 text-[100px] md:text-[120px] font-serif text-white/[0.03] leading-none select-none transition-all duration-500 group-hover:text-brand-green/[0.06]">01</span>
 
                             <!-- Content -->
                             <div class="relative z-10">
-                                <div class="flex items-center gap-3 mb-6">
-                                    <div class="w-10 h-10 flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:border-brand-green/50 group-hover:bg-brand-green/10">
-                                        <span class="iconify text-white/60 group-hover:text-brand-green transition-colors" data-icon="lucide:target" data-width="20"></span>
+                                <div class="flex items-center gap-3 mb-5">
+                                    <div class="w-9 h-9 flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:border-brand-green/50 group-hover:bg-brand-green/10">
+                                        <span class="iconify text-white/60 group-hover:text-brand-green transition-colors" data-icon="lucide:target" data-width="18"></span>
                                     </div>
                                     <span class="text-xs font-medium text-white/40 uppercase tracking-wider">Phase 01</span>
                                 </div>
 
-                                <h3 class="text-2xl md:text-[28px] font-serif text-white tracking-tight mb-6 transition-colors duration-500 group-hover:text-brand-green">Strategy & Offer Creation</h3>
+                                <h3 class="text-xl md:text-2xl font-serif text-white tracking-tight mb-5 transition-colors duration-500 group-hover:text-brand-green">Strategy & Offer Creation</h3>
 
-                                <ul class="space-y-3">
+                                <ul class="space-y-2.5">
                                     <li class="flex items-start gap-3 text-white/50 text-sm leading-relaxed">
                                         <span class="w-1 h-1 bg-white/30 rounded-full mt-2 flex-shrink-0 group-hover:bg-brand-green transition-colors"></span>
-                                        Sales call analysis to identify winning angles
+                                        Sales call analysis for winning angles
                                     </li>
                                     <li class="flex items-start gap-3 text-white/50 text-sm leading-relaxed">
                                         <span class="w-1 h-1 bg-white/30 rounded-full mt-2 flex-shrink-0 group-hover:bg-brand-green transition-colors"></span>
@@ -861,36 +880,32 @@
                                     </li>
                                     <li class="flex items-start gap-3 text-white/50 text-sm leading-relaxed">
                                         <span class="w-1 h-1 bg-white/30 rounded-full mt-2 flex-shrink-0 group-hover:bg-brand-green transition-colors"></span>
-                                        Messaging and positioning development
-                                    </li>
-                                    <li class="flex items-start gap-3 text-white/50 text-sm leading-relaxed">
-                                        <span class="w-1 h-1 bg-white/30 rounded-full mt-2 flex-shrink-0 group-hover:bg-brand-green transition-colors"></span>
-                                        Offer structuring and optimization
+                                        Messaging and positioning
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Card 2: Ad Creatives -->
-                    <div class="deliverable-card group flex-shrink-0 w-[320px] md:w-[380px] snap-center">
-                        <div class="relative h-full bg-[#0A0B10] border border-white/10 p-8 md:p-10 transition-all duration-500 hover:border-brand-green/30 hover:bg-[#0d0e14]">
-                            <div class="absolute top-0 left-0 w-8 h-8 border-t border-l border-white/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-brand-green/50"></div>
-                            <div class="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-white/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-brand-green/50"></div>
-
-                            <span class="absolute top-4 right-6 text-[120px] md:text-[160px] font-serif text-white/[0.03] leading-none select-none transition-all duration-500 group-hover:text-brand-green/[0.06]">02</span>
+                <!-- Card 2: Ad Creatives -->
+                <div class="deliverable-card group reveal">
+                    <div class="relative p-[1px] h-full">
+                        <div class="animated-border"></div>
+                        <div class="relative h-full bg-[#0A0B10] border border-white/10 p-8 transition-all duration-500 group-hover:border-transparent group-hover:bg-[#0d0e14]">
+                            <span class="absolute top-4 right-6 text-[100px] md:text-[120px] font-serif text-white/[0.03] leading-none select-none transition-all duration-500 group-hover:text-brand-green/[0.06]">02</span>
 
                             <div class="relative z-10">
-                                <div class="flex items-center gap-3 mb-6">
-                                    <div class="w-10 h-10 flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:border-brand-green/50 group-hover:bg-brand-green/10">
-                                        <span class="iconify text-white/60 group-hover:text-brand-green transition-colors" data-icon="lucide:play-square" data-width="20"></span>
+                                <div class="flex items-center gap-3 mb-5">
+                                    <div class="w-9 h-9 flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:border-brand-green/50 group-hover:bg-brand-green/10">
+                                        <span class="iconify text-white/60 group-hover:text-brand-green transition-colors" data-icon="lucide:play-square" data-width="18"></span>
                                     </div>
                                     <span class="text-xs font-medium text-white/40 uppercase tracking-wider">Phase 02</span>
                                 </div>
 
-                                <h3 class="text-2xl md:text-[28px] font-serif text-white tracking-tight mb-6 transition-colors duration-500 group-hover:text-brand-green">Ad Creatives</h3>
+                                <h3 class="text-xl md:text-2xl font-serif text-white tracking-tight mb-5 transition-colors duration-500 group-hover:text-brand-green">Ad Creatives</h3>
 
-                                <ul class="space-y-3">
+                                <ul class="space-y-2.5">
                                     <li class="flex items-start gap-3 text-white/50 text-sm leading-relaxed">
                                         <span class="w-1 h-1 bg-white/30 rounded-full mt-2 flex-shrink-0 group-hover:bg-brand-green transition-colors"></span>
                                         Ad scripting and copywriting
@@ -905,36 +920,32 @@
                                     </li>
                                     <li class="flex items-start gap-3 text-white/50 text-sm leading-relaxed">
                                         <span class="w-1 h-1 bg-white/30 rounded-full mt-2 flex-shrink-0 group-hover:bg-brand-green transition-colors"></span>
-                                        Carousel ad creation
-                                    </li>
-                                    <li class="flex items-start gap-3 text-white/50 text-sm leading-relaxed">
-                                        <span class="w-1 h-1 bg-white/30 rounded-full mt-2 flex-shrink-0 group-hover:bg-brand-green transition-colors"></span>
                                         50+ ad angles tested monthly
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Card 3: Full Funnel -->
-                    <div class="deliverable-card group flex-shrink-0 w-[320px] md:w-[380px] snap-center">
-                        <div class="relative h-full bg-[#0A0B10] border border-white/10 p-8 md:p-10 transition-all duration-500 hover:border-brand-green/30 hover:bg-[#0d0e14]">
-                            <div class="absolute top-0 left-0 w-8 h-8 border-t border-l border-white/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-brand-green/50"></div>
-                            <div class="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-white/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-brand-green/50"></div>
-
-                            <span class="absolute top-4 right-6 text-[120px] md:text-[160px] font-serif text-white/[0.03] leading-none select-none transition-all duration-500 group-hover:text-brand-green/[0.06]">03</span>
+                <!-- Card 3: Full Funnel -->
+                <div class="deliverable-card group reveal">
+                    <div class="relative p-[1px] h-full">
+                        <div class="animated-border"></div>
+                        <div class="relative h-full bg-[#0A0B10] border border-white/10 p-8 transition-all duration-500 group-hover:border-transparent group-hover:bg-[#0d0e14]">
+                            <span class="absolute top-4 right-6 text-[100px] md:text-[120px] font-serif text-white/[0.03] leading-none select-none transition-all duration-500 group-hover:text-brand-green/[0.06]">03</span>
 
                             <div class="relative z-10">
-                                <div class="flex items-center gap-3 mb-6">
-                                    <div class="w-10 h-10 flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:border-brand-green/50 group-hover:bg-brand-green/10">
-                                        <span class="iconify text-white/60 group-hover:text-brand-green transition-colors" data-icon="lucide:git-branch" data-width="20"></span>
+                                <div class="flex items-center gap-3 mb-5">
+                                    <div class="w-9 h-9 flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:border-brand-green/50 group-hover:bg-brand-green/10">
+                                        <span class="iconify text-white/60 group-hover:text-brand-green transition-colors" data-icon="lucide:git-branch" data-width="18"></span>
                                     </div>
                                     <span class="text-xs font-medium text-white/40 uppercase tracking-wider">Phase 03</span>
                                 </div>
 
-                                <h3 class="text-2xl md:text-[28px] font-serif text-white tracking-tight mb-6 transition-colors duration-500 group-hover:text-brand-green">Full Funnel Buildout</h3>
+                                <h3 class="text-xl md:text-2xl font-serif text-white tracking-tight mb-5 transition-colors duration-500 group-hover:text-brand-green">Full Funnel Buildout</h3>
 
-                                <ul class="space-y-3">
+                                <ul class="space-y-2.5">
                                     <li class="flex items-start gap-3 text-white/50 text-sm leading-relaxed">
                                         <span class="w-1 h-1 bg-white/30 rounded-full mt-2 flex-shrink-0 group-hover:bg-brand-green transition-colors"></span>
                                         Landing page copy, design & dev
@@ -955,26 +966,26 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Card 4: Tracking -->
-                    <div class="deliverable-card group flex-shrink-0 w-[320px] md:w-[380px] snap-center">
-                        <div class="relative h-full bg-[#0A0B10] border border-white/10 p-8 md:p-10 transition-all duration-500 hover:border-brand-green/30 hover:bg-[#0d0e14]">
-                            <div class="absolute top-0 left-0 w-8 h-8 border-t border-l border-white/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-brand-green/50"></div>
-                            <div class="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-white/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-brand-green/50"></div>
-
-                            <span class="absolute top-4 right-6 text-[120px] md:text-[160px] font-serif text-white/[0.03] leading-none select-none transition-all duration-500 group-hover:text-brand-green/[0.06]">04</span>
+                <!-- Card 4: Tracking -->
+                <div class="deliverable-card group reveal">
+                    <div class="relative p-[1px] h-full">
+                        <div class="animated-border"></div>
+                        <div class="relative h-full bg-[#0A0B10] border border-white/10 p-8 transition-all duration-500 group-hover:border-transparent group-hover:bg-[#0d0e14]">
+                            <span class="absolute top-4 right-6 text-[100px] md:text-[120px] font-serif text-white/[0.03] leading-none select-none transition-all duration-500 group-hover:text-brand-green/[0.06]">04</span>
 
                             <div class="relative z-10">
-                                <div class="flex items-center gap-3 mb-6">
-                                    <div class="w-10 h-10 flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:border-brand-green/50 group-hover:bg-brand-green/10">
-                                        <span class="iconify text-white/60 group-hover:text-brand-green transition-colors" data-icon="lucide:scan-line" data-width="20"></span>
+                                <div class="flex items-center gap-3 mb-5">
+                                    <div class="w-9 h-9 flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:border-brand-green/50 group-hover:bg-brand-green/10">
+                                        <span class="iconify text-white/60 group-hover:text-brand-green transition-colors" data-icon="lucide:scan-line" data-width="18"></span>
                                     </div>
                                     <span class="text-xs font-medium text-white/40 uppercase tracking-wider">Phase 04</span>
                                 </div>
 
-                                <h3 class="text-2xl md:text-[28px] font-serif text-white tracking-tight mb-6 transition-colors duration-500 group-hover:text-brand-green">Tracking & Attribution</h3>
+                                <h3 class="text-xl md:text-2xl font-serif text-white tracking-tight mb-5 transition-colors duration-500 group-hover:text-brand-green">Tracking & Attribution</h3>
 
-                                <ul class="space-y-3">
+                                <ul class="space-y-2.5">
                                     <li class="flex items-start gap-3 text-white/50 text-sm leading-relaxed">
                                         <span class="w-1 h-1 bg-white/30 rounded-full mt-2 flex-shrink-0 group-hover:bg-brand-green transition-colors"></span>
                                         Meta Pixel setup and configuration
@@ -995,33 +1006,29 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Card 5: Sales CRM -->
-                    <div class="deliverable-card group flex-shrink-0 w-[320px] md:w-[380px] snap-center">
-                        <div class="relative h-full bg-[#0A0B10] border border-white/10 p-8 md:p-10 transition-all duration-500 hover:border-brand-green/30 hover:bg-[#0d0e14]">
-                            <div class="absolute top-0 left-0 w-8 h-8 border-t border-l border-white/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-brand-green/50"></div>
-                            <div class="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-white/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-brand-green/50"></div>
-
-                            <span class="absolute top-4 right-6 text-[120px] md:text-[160px] font-serif text-white/[0.03] leading-none select-none transition-all duration-500 group-hover:text-brand-green/[0.06]">05</span>
+                <!-- Card 5: Sales CRM -->
+                <div class="deliverable-card group reveal">
+                    <div class="relative p-[1px] h-full">
+                        <div class="animated-border"></div>
+                        <div class="relative h-full bg-[#0A0B10] border border-white/10 p-8 transition-all duration-500 group-hover:border-transparent group-hover:bg-[#0d0e14]">
+                            <span class="absolute top-4 right-6 text-[100px] md:text-[120px] font-serif text-white/[0.03] leading-none select-none transition-all duration-500 group-hover:text-brand-green/[0.06]">05</span>
 
                             <div class="relative z-10">
-                                <div class="flex items-center gap-3 mb-6">
-                                    <div class="w-10 h-10 flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:border-brand-green/50 group-hover:bg-brand-green/10">
-                                        <span class="iconify text-white/60 group-hover:text-brand-green transition-colors" data-icon="lucide:mail" data-width="20"></span>
+                                <div class="flex items-center gap-3 mb-5">
+                                    <div class="w-9 h-9 flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:border-brand-green/50 group-hover:bg-brand-green/10">
+                                        <span class="iconify text-white/60 group-hover:text-brand-green transition-colors" data-icon="lucide:mail" data-width="18"></span>
                                     </div>
                                     <span class="text-xs font-medium text-white/40 uppercase tracking-wider">Phase 05</span>
                                 </div>
 
-                                <h3 class="text-2xl md:text-[28px] font-serif text-white tracking-tight mb-6 transition-colors duration-500 group-hover:text-brand-green">Sales CRM & Optimization</h3>
+                                <h3 class="text-xl md:text-2xl font-serif text-white tracking-tight mb-5 transition-colors duration-500 group-hover:text-brand-green">Sales CRM & Optimization</h3>
 
-                                <ul class="space-y-3">
+                                <ul class="space-y-2.5">
                                     <li class="flex items-start gap-3 text-white/50 text-sm leading-relaxed">
                                         <span class="w-1 h-1 bg-white/30 rounded-full mt-2 flex-shrink-0 group-hover:bg-brand-green transition-colors"></span>
                                         CRM workflow optimization
-                                    </li>
-                                    <li class="flex items-start gap-3 text-white/50 text-sm leading-relaxed">
-                                        <span class="w-1 h-1 bg-white/30 rounded-full mt-2 flex-shrink-0 group-hover:bg-brand-green transition-colors"></span>
-                                        Pipeline setup and configuration
                                     </li>
                                     <li class="flex items-start gap-3 text-white/50 text-sm leading-relaxed">
                                         <span class="w-1 h-1 bg-white/30 rounded-full mt-2 flex-shrink-0 group-hover:bg-brand-green transition-colors"></span>
@@ -1039,26 +1046,26 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Card 6: Testing & Reporting -->
-                    <div class="deliverable-card group flex-shrink-0 w-[320px] md:w-[380px] snap-center">
-                        <div class="relative h-full bg-[#0A0B10] border border-white/10 p-8 md:p-10 transition-all duration-500 hover:border-brand-green/30 hover:bg-[#0d0e14]">
-                            <div class="absolute top-0 left-0 w-8 h-8 border-t border-l border-white/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-brand-green/50"></div>
-                            <div class="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-white/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-brand-green/50"></div>
-
-                            <span class="absolute top-4 right-6 text-[120px] md:text-[160px] font-serif text-white/[0.03] leading-none select-none transition-all duration-500 group-hover:text-brand-green/[0.06]">06</span>
+                <!-- Card 6: Testing & Reporting -->
+                <div class="deliverable-card group reveal">
+                    <div class="relative p-[1px] h-full">
+                        <div class="animated-border"></div>
+                        <div class="relative h-full bg-[#0A0B10] border border-white/10 p-8 transition-all duration-500 group-hover:border-transparent group-hover:bg-[#0d0e14]">
+                            <span class="absolute top-4 right-6 text-[100px] md:text-[120px] font-serif text-white/[0.03] leading-none select-none transition-all duration-500 group-hover:text-brand-green/[0.06]">06</span>
 
                             <div class="relative z-10">
-                                <div class="flex items-center gap-3 mb-6">
-                                    <div class="w-10 h-10 flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:border-brand-green/50 group-hover:bg-brand-green/10">
-                                        <span class="iconify text-white/60 group-hover:text-brand-green transition-colors" data-icon="lucide:bar-chart-3" data-width="20"></span>
+                                <div class="flex items-center gap-3 mb-5">
+                                    <div class="w-9 h-9 flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:border-brand-green/50 group-hover:bg-brand-green/10">
+                                        <span class="iconify text-white/60 group-hover:text-brand-green transition-colors" data-icon="lucide:bar-chart-3" data-width="18"></span>
                                     </div>
                                     <span class="text-xs font-medium text-white/40 uppercase tracking-wider">Phase 06</span>
                                 </div>
 
-                                <h3 class="text-2xl md:text-[28px] font-serif text-white tracking-tight mb-6 transition-colors duration-500 group-hover:text-brand-green">Testing & Reporting</h3>
+                                <h3 class="text-xl md:text-2xl font-serif text-white tracking-tight mb-5 transition-colors duration-500 group-hover:text-brand-green">Testing & Reporting</h3>
 
-                                <ul class="space-y-3">
+                                <ul class="space-y-2.5">
                                     <li class="flex items-start gap-3 text-white/50 text-sm leading-relaxed">
                                         <span class="w-1 h-1 bg-white/30 rounded-full mt-2 flex-shrink-0 group-hover:bg-brand-green transition-colors"></span>
                                         Creative testing and iteration
@@ -1079,19 +1086,8 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Spacer for scroll padding -->
-                    <div class="flex-shrink-0 w-6 md:w-12"></div>
                 </div>
 
-                <!-- Scroll indicator -->
-                <div class="flex justify-center mt-8 gap-2">
-                    <span class="text-white/30 text-xs uppercase tracking-wider flex items-center gap-2">
-                        <span class="iconify" data-icon="lucide:mouse-pointer-click" data-width="14"></span>
-                        Drag to explore
-                        <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
-                    </span>
-                </div>
             </div>
         </section>
 
