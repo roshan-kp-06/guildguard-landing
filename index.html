@@ -1476,27 +1476,31 @@
         </section>
 
         <!-- Section 13: Final CTA -->
-        <section id="book-call" class="container mx-auto px-6 max-w-4xl text-center mb-20 md:mb-32">
+        <section id="book-call" class="container mx-auto px-6 max-w-6xl text-center mb-20 md:mb-32">
             <div class="reveal">
-                <div class="glass-panel rounded-2xl p-6 md:p-10 border border-white/10">
+                <!-- Glass panel only on desktop via custom class -->
+                <div class="calendly-container">
                     <h2 class="text-3xl md:text-5xl font-serif text-white tracking-tight mb-3">Let's Talk About Your Ad Funnel</h2>
                     <p class="text-white/60 text-center mb-6 max-w-2xl mx-auto">
                         Book a call to discuss how we can help you acquire customers profitably.
                     </p>
-                    <!-- Calendly inline widget -->
-                    <div class="bg-white rounded-xl overflow-hidden mx-auto" style="max-width: 100%;">
-                        <div class="calendly-inline-widget w-full" data-url="https://calendly.com/airrdigital/discovery-call?primary_color=5865f2&hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a2e" style="min-width:280px;height:680px;"></div>
-                    </div>
+                    <!-- Calendly inline widget - embedded directly -->
+                    <div class="calendly-inline-widget w-full" data-url="https://calendly.com/airrdigital/discovery-call?primary_color=5865f2&hide_gdpr_banner=1" style="min-width:280px;height:700px;"></div>
                     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                    <style>
-                        @media (max-width: 640px) {
-                            .calendly-inline-widget {
-                                height: 720px !important;
-                            }
-                        }
-                    </style>
                 </div>
             </div>
+            <style>
+                /* Glass panel only on desktop */
+                @media (min-width: 768px) {
+                    .calendly-container {
+                        background: linear-gradient(180deg, rgba(88, 101, 242, 0.03) 0%, rgba(255,255,255,0.01) 100%);
+                        backdrop-filter: blur(12px);
+                        border-radius: 1rem;
+                        padding: 2.5rem;
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                    }
+                }
+            </style>
         </section>
 
         <!-- Section 15: FAQ -->
