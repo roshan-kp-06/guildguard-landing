@@ -150,10 +150,13 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            padding-top: 0;
+            padding-bottom: 0;
         }
         .faq-item.active .faq-answer {
             max-height: 500px;
+            padding-bottom: 1.25rem;
         }
         .faq-item.active .faq-icon {
             transform: rotate(45deg);
@@ -199,7 +202,7 @@
             </div>
 
             <div class="flex items-center gap-3">
-                <a href="#" class="bg-white text-brand-dark px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs font-medium hover:bg-brand-green hover:text-white transition-all duration-300">
+                <a href="#book-call" class="bg-white text-brand-dark px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs font-medium hover:bg-brand-green hover:text-white transition-all duration-300">
                     Let's Talk About Your Ads
                 </a>
             </div>
@@ -228,7 +231,7 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center px-4">
-                    <a href="#" class="w-full sm:w-auto group relative inline-flex items-center justify-center overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-brand-dark">
+                    <a href="#book-call" class="w-full sm:w-auto group relative inline-flex items-center justify-center overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-brand-dark">
                         <span class="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#5865F2_0%,#00D9A5_25%,#5865F2_50%,#00D9A5_75%,#5865F2_100%)]"></span>
                         <span class="inline-flex h-full w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-medium text-brand-dark backdrop-blur-3xl transition-all group-hover:bg-brand-green group-hover:text-white">
                             Let's Talk About Your Ads
@@ -1271,41 +1274,52 @@
             </div>
         </section>
 
-        <!-- Section 12: Logo Grid -->
-        <section class="py-16 md:py-20 reveal">
-            <div class="max-w-4xl mx-auto px-4">
-                <div class="glass-panel rounded-2xl p-10 md:p-14 border border-white/10">
-                    <p class="text-center text-white/60 text-sm uppercase tracking-widest mb-10">
-                        Join these other SaaS companies
-                    </p>
-                    <!-- Row 1: 3 logos -->
-                    <div class="flex justify-center items-center gap-12 md:gap-16 mb-10">
-                        <img src="logos/octolane.svg" alt="Octolane AI" class="h-6 md:h-8 opacity-60 text-white" style="filter: brightness(0) invert(1);" />
-                        <img src="logos/dittofi.svg" alt="Dittofi" class="h-6 md:h-8 opacity-60 text-white" style="filter: brightness(0) invert(1);" />
-                        <img src="logos/plannerly.svg" alt="Plannerly" class="h-5 md:h-6 opacity-60 text-white" style="filter: brightness(0) invert(1);" />
+        <!-- Section 12: 3 Steps To Profitable Ads -->
+        <section class="container mx-auto px-6 max-w-5xl mb-20 md:mb-32">
+            <div class="text-center mb-12 md:mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-serif text-white tracking-tight mb-4">3 Steps To Profitable Ads...</h2>
+                <p class="text-white/60 text-lg max-w-2xl mx-auto">Here's exactly what happens when you work with us</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8 reveal">
+                <!-- Step 1 -->
+                <div class="bg-[#0A0B10] border border-white/10 p-8 rounded-xl relative">
+                    <div class="absolute -top-4 left-8 bg-[#5865F2] text-white text-xs font-bold px-3 py-1 rounded-full">Step 1</div>
+                    <div class="pt-4">
+                        <h3 class="text-xl font-serif text-white mb-3">Book A Call</h3>
+                        <p class="text-white/60 text-sm leading-relaxed">Schedule a 30-minute discovery call with our team. We'll learn about your business, your goals, and determine if we're the right fit to help you scale profitably.</p>
                     </div>
-                    <!-- Row 2: 2 logos -->
-                    <div class="flex justify-center items-center gap-12 md:gap-16 mb-10">
-                        <img src="logos/roomai.svg" alt="Room AI" class="h-5 md:h-6 opacity-60 text-white" style="filter: brightness(0) invert(1);" />
-                        <img src="logos/atlas.svg" alt="Atlas" class="h-5 md:h-6 opacity-60 text-white" style="filter: brightness(0) invert(1);" />
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-[#0A0B10] border border-white/10 p-8 rounded-xl relative">
+                    <div class="absolute -top-4 left-8 bg-[#5865F2] text-white text-xs font-bold px-3 py-1 rounded-full">Step 2</div>
+                    <div class="pt-4">
+                        <h3 class="text-xl font-serif text-white mb-3">Complimentary Audit</h3>
+                        <p class="text-white/60 text-sm leading-relaxed">We'll conduct a deep-dive audit of your current offer, ads, key metrics, funnels, and creatives. You'll walk away with actionable insights regardless of whether we work together.</p>
                     </div>
-                    <!-- Row 3: 1 logo -->
-                    <div class="flex justify-center">
-                        <img src="logos/crayo.svg" alt="Crayo" class="h-6 md:h-8 opacity-60 text-white" style="filter: brightness(0) invert(1);" />
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-[#0A0B10] border border-white/10 p-8 rounded-xl relative">
+                    <div class="absolute -top-4 left-8 bg-[#5865F2] text-white text-xs font-bold px-3 py-1 rounded-full">Step 3</div>
+                    <div class="pt-4">
+                        <h3 class="text-xl font-serif text-white mb-3">Granular Roadmap</h3>
+                        <p class="text-white/60 text-sm leading-relaxed">We'll map out exactly what needs to be done to get your ads live and profitable within 14 days - including offer positioning, creative strategy, funnel architecture, and targeting approach. No guesswork, just a clear path forward.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 14: Final CTA -->
-        <section class="container mx-auto px-6 max-w-5xl text-center mb-20 md:mb-32">
+        <!-- Section 13: Final CTA -->
+        <section id="book-call" class="container mx-auto px-6 max-w-6xl text-center mb-20 md:mb-32">
             <div class="glass-panel p-8 md:p-12 rounded-2xl border border-white/10 relative overflow-hidden reveal">
                 <h2 class="text-3xl md:text-4xl font-serif text-white tracking-tight mb-4 relative z-10">Let's Talk About Your Ad Funnel</h2>
                 <p class="text-white/60 text-center mb-8 max-w-2xl mx-auto relative z-10">
                     Book a call to discuss how we can help you acquire customers profitably.
                 </p>
                 <!-- Calendly inline widget -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/airrdigital/discovery-call?primary_color=5865f2" style="min-width:320px;height:700px;"></div>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/airrdigital/discovery-call?primary_color=5865f2" style="min-width:320px;height:680px;"></div>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
             </div>
         </section>
@@ -1323,7 +1337,7 @@
                         <span class="text-white font-medium text-sm pr-4">What makes you different from other agencies?</span>
                         <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
-                    <div class="faq-answer px-6 pb-5">
+                    <div class="faq-answer px-6">
                         <p class="text-white/80 text-base font-medium leading-relaxed">
                             We only work with B2B SaaS companies. That's it. This means every framework, every creative angle, every optimization we've learned comes from companies like yours. We also own the entire funnel - ads, landing pages, VSL, email flows - so you're not coordinating between five different vendors.
                         </p>
@@ -1336,7 +1350,7 @@
                         <span class="text-white font-medium text-sm pr-4">How long until I see results?</span>
                         <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
-                    <div class="faq-answer px-6 pb-5">
+                    <div class="faq-answer px-6">
                         <p class="text-white/80 text-base font-medium leading-relaxed">
                             We launch campaigns within 14 days of kickoff. Most clients see their first booked demos within the first 7 days. Meaningful data on what's working usually comes by week 2-3. Full optimization and scaling typically happens over 6-8 weeks.
                         </p>
@@ -1349,7 +1363,7 @@
                         <span class="text-white font-medium text-sm pr-4">What's the minimum ad spend required?</span>
                         <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
-                    <div class="faq-answer px-6 pb-5">
+                    <div class="faq-answer px-6">
                         <p class="text-white/80 text-base font-medium leading-relaxed">
                             We recommend a minimum of $200/day in ad spend. This gives us enough data to test creative angles, optimize campaigns, and scale what's working.
                         </p>
@@ -1362,7 +1376,7 @@
                         <span class="text-white font-medium text-sm pr-4">Do you work with PLG or self-serve companies?</span>
                         <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
-                    <div class="faq-answer px-6 pb-5">
+                    <div class="faq-answer px-6">
                         <p class="text-white/80 text-base font-medium leading-relaxed">
                             We primarily work with sales-led B2B SaaS. If your main GTM motion is 100% product led growth, we're probably not the right fit. If you have a sales team and want to drive more qualified demos, that's where we excel.
                         </p>
@@ -1375,7 +1389,7 @@
                         <span class="text-white font-medium text-sm pr-4">What if I've tried paid ads before and they didn't work?</span>
                         <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
-                    <div class="faq-answer px-6 pb-5">
+                    <div class="faq-answer px-6">
                         <p class="text-white/80 text-base font-medium leading-relaxed">
                             Most B2B SaaS companies fail at paid ads for one of three reasons: wrong offer, wrong creative, or wrong funnel. We fix all three. We've worked with companies who burned through agencies before finding us - the difference is we understand B2B SaaS buying cycles and build everything around booking qualified demos, not vanity metrics.
                         </p>
@@ -1388,7 +1402,7 @@
                         <span class="text-white font-medium text-sm pr-4">How involved do I need to be?</span>
                         <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
-                    <div class="faq-answer px-6 pb-5">
+                    <div class="faq-answer px-6">
                         <p class="text-white/80 text-base font-medium leading-relaxed">
                             During the first 2-3 weeks, we'll need more of your time - sales call recordings, offer feedback, creative approvals. After launch, it's typically a 30-minute call per week plus Slack for communication. We handle the execution.
                         </p>
@@ -1401,7 +1415,7 @@
                         <span class="text-white font-medium text-sm pr-4">Do you handle creative production or do I need to film content?</span>
                         <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
-                    <div class="faq-answer px-6 pb-5">
+                    <div class="faq-answer px-6">
                         <p class="text-white/80 text-base font-medium leading-relaxed">
                             We handle everything - scripting, design, editing. For video ads and VSLs, we'll need you or your team to film the talking head portions. We provide the scripts and shot lists, you just need to spend 1 hour per month (approximately) on filming.
                         </p>
@@ -1414,7 +1428,7 @@
                         <span class="text-white font-medium text-sm pr-4">What platforms do you run ads on?</span>
                         <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
-                    <div class="faq-answer px-6 pb-5">
+                    <div class="faq-answer px-6">
                         <p class="text-white/80 text-base font-medium leading-relaxed">
                             Primarily Meta (Facebook and Instagram). We've seen Meta have the lowest CAC, and highest ROAS across 60+ B2B SaaS clients we've worked with.
                         </p>
@@ -1427,7 +1441,7 @@
                         <span class="text-white font-medium text-sm pr-4">How do you charge? What's the pricing model?</span>
                         <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
-                    <div class="faq-answer px-6 pb-5">
+                    <div class="faq-answer px-6">
                         <p class="text-white/80 text-base font-medium leading-relaxed">
                             We have setup, monthly, 3-month or 6-month plans depending on what you're looking for. Our pricing ranges from $5k - $30k across our plans and offers. We can share specific pricing on a call once we understand your situation.
                         </p>
@@ -1440,7 +1454,7 @@
                         <span class="text-white font-medium text-sm pr-4">Do I own everything you create?</span>
                         <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
-                    <div class="faq-answer px-6 pb-5">
+                    <div class="faq-answer px-6">
                         <p class="text-white/80 text-base font-medium leading-relaxed">
                             Yes. All landing pages, VSL scripts, ad creatives, email flows - everything we build is yours. If we part ways, you keep all assets and can continue running campaigns yourself.
                         </p>
@@ -1453,12 +1467,20 @@
                         <span class="text-white font-medium text-sm pr-4">What if it doesn't work?</span>
                         <span class="iconify faq-icon text-white/40 transition-transform duration-300 flex-shrink-0" data-icon="lucide:plus" data-width="20"></span>
                     </button>
-                    <div class="faq-answer px-6 pb-5">
+                    <div class="faq-answer px-6">
                         <p class="text-white/80 text-base font-medium leading-relaxed">
                             Our goal is to make you profitable within 90 days. So we guarantee results, and offer a full refund if results are not met. If we've done our job and you've held up your end (ad spend, timely approvals, following our process), you will see results.
                         </p>
                     </div>
                 </div>
+            </div>
+
+            <!-- CTA Button after FAQs -->
+            <div class="text-center mt-12 reveal">
+                <a href="#book-call" class="inline-flex items-center justify-center gap-2 bg-white text-brand-dark px-8 py-4 rounded-full text-sm font-semibold hover:bg-brand-green hover:text-white transition-all duration-300 shadow-xl shadow-white/5">
+                    We'll Audit Your Ads
+                    <span class="iconify" data-icon="lucide:arrow-up" data-width="16"></span>
+                </a>
             </div>
         </section>
 
