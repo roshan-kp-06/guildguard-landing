@@ -361,123 +361,143 @@
         </section>
 
         <!-- Section 7: Case Studies -->
-        <section id="case-studies" class="container mx-auto px-6 max-w-5xl mb-20 md:mb-32">
+        <section id="case-studies" class="container mx-auto px-6 max-w-6xl mb-20 md:mb-32">
             <div class="mb-16 md:mb-20 text-center reveal">
                 <h2 class="text-3xl md:text-5xl font-serif text-white tracking-tight mb-6">Get Real Results And ROI</h2>
             </div>
 
-            <!-- Case Studies - Editorial Layout -->
-            <div class="space-y-0">
+            <!-- Case Studies Grid - Card Style -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Case Study 1: ProductHQ -->
-                <div class="border-t border-white/10 py-12 md:py-16 reveal">
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-                        <!-- Left: Company & Context -->
-                        <div class="md:col-span-5">
-                            <div class="mb-6">
-                                <h3 class="text-2xl md:text-3xl font-serif text-white mb-2">ProductHQ</h3>
-                                <p class="text-white/40 text-sm font-light">Product management platform</p>
-                            </div>
-                            <p class="text-white/50 font-light leading-relaxed text-sm md:text-base">
-                                Competing in a crowded market with no clear positioning. We conducted deep market research, built ad creatives with messaging that resonated with their ICP, and launched targeted Meta campaigns.
-                            </p>
-                        </div>
-                        <!-- Right: Results -->
-                        <div class="md:col-span-7">
-                            <div class="flex flex-wrap gap-x-12 gap-y-6 md:justify-end">
-                                <div>
-                                    <p class="text-4xl md:text-5xl font-serif text-gradient mb-1">438</p>
-                                    <p class="text-white/40 text-xs uppercase tracking-wider">Meetings Booked</p>
-                                </div>
-                                <div>
-                                    <p class="text-4xl md:text-5xl font-serif text-gradient mb-1">411%</p>
-                                    <p class="text-white/40 text-xs uppercase tracking-wider">Lower Cost/Call</p>
-                                </div>
-                                <div>
-                                    <p class="text-4xl md:text-5xl font-serif text-gradient mb-1">$1.3M</p>
-                                    <p class="text-white/40 text-xs uppercase tracking-wider">ARR in 90 Days</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="bg-[#0A0B10] border border-white/10 p-8 md:p-10 reveal">
+                    <!-- Tag -->
+                    <span class="inline-block px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-brand-green bg-brand-green/10 border border-brand-green/20 mb-6">Product Management SaaS</span>
+
+                    <!-- Headline Result -->
+                    <h3 class="text-2xl md:text-3xl font-serif text-white leading-tight mb-6">
+                        $0 to $1.3M ARR in 90 Days
+                    </h3>
+
+                    <!-- Deliverables -->
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green mt-1">&#10003;</span>
+                            <span class="text-white/60 text-sm">50+ ad creatives tested</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green mt-1">&#10003;</span>
+                            <span class="text-white/60 text-sm">438 qualified meetings booked</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green mt-1">&#10003;</span>
+                            <span class="text-white/60 text-sm">411% decrease in cost per call</span>
+                        </li>
+                    </ul>
+
+                    <!-- CTA -->
+                    <a href="#" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-brand-dark text-sm font-medium rounded-full hover:bg-brand-green hover:text-white transition-colors">
+                        Get Results Like This
+                        <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+                    </a>
                 </div>
 
                 <!-- Case Study 2: Upnotify -->
-                <div class="border-t border-white/10 py-12 md:py-16 reveal">
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-                        <!-- Left: Company & Context -->
-                        <div class="md:col-span-5">
-                            <div class="mb-6">
-                                <h3 class="text-2xl md:text-3xl font-serif text-white mb-2">Upnotify</h3>
-                                <p class="text-white/40 text-sm font-light">Notification infrastructure for SaaS</p>
-                            </div>
-                            <p class="text-white/50 font-light leading-relaxed text-sm md:text-base">
-                                High CAC making paid acquisition unprofitable. We overhauled their entire funnel, launched 40+ ad creatives, built custom landing pages, and set up backend nurture systems.
-                            </p>
-                        </div>
-                        <!-- Right: Results -->
-                        <div class="md:col-span-7">
-                            <div class="flex flex-wrap gap-x-12 gap-y-6 md:justify-end">
-                                <div>
-                                    <p class="text-4xl md:text-5xl font-serif text-gradient mb-1">7.5x</p>
-                                    <p class="text-white/40 text-xs uppercase tracking-wider">More Conversions</p>
-                                </div>
-                                <div>
-                                    <p class="text-4xl md:text-5xl font-serif text-gradient mb-1">245%</p>
-                                    <p class="text-white/40 text-xs uppercase tracking-wider">Lower CAC</p>
-                                </div>
-                                <div>
-                                    <p class="text-4xl md:text-5xl font-serif text-gradient mb-1">9x</p>
-                                    <p class="text-white/40 text-xs uppercase tracking-wider">More Demos</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="bg-[#0A0B10] border border-white/10 p-8 md:p-10 reveal">
+                    <!-- Tag -->
+                    <span class="inline-block px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-brand-green bg-brand-green/10 border border-brand-green/20 mb-6">Notification Infrastructure</span>
+
+                    <!-- Headline Result -->
+                    <h3 class="text-2xl md:text-3xl font-serif text-white leading-tight mb-6">
+                        7.5x More Conversions with 245% Lower CAC
+                    </h3>
+
+                    <!-- Deliverables -->
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green mt-1">&#10003;</span>
+                            <span class="text-white/60 text-sm">40+ ad creatives launched</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green mt-1">&#10003;</span>
+                            <span class="text-white/60 text-sm">Custom landing pages per campaign</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green mt-1">&#10003;</span>
+                            <span class="text-white/60 text-sm">9x more qualified demos booked</span>
+                        </li>
+                    </ul>
+
+                    <!-- CTA -->
+                    <a href="#" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-brand-dark text-sm font-medium rounded-full hover:bg-brand-green hover:text-white transition-colors">
+                        Get Results Like This
+                        <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+                    </a>
                 </div>
 
                 <!-- Case Study 3: Instantly AI -->
-                <div class="border-t border-white/10 py-12 md:py-16 reveal">
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-                        <!-- Left: Company & Context -->
-                        <div class="md:col-span-5">
-                            <div class="mb-6">
-                                <h3 class="text-2xl md:text-3xl font-serif text-white mb-2">Instantly AI</h3>
-                                <p class="text-white/40 text-sm font-light">Cold email infrastructure platform</p>
-                            </div>
-                            <p class="text-white/50 font-light leading-relaxed text-sm md:text-base">
-                                Identified high-intent audience segments. Crafted messaging and creative angles that spoke directly to pain points. Built conversion systems to capture and convert leads.
-                            </p>
-                        </div>
-                        <!-- Right: Results -->
-                        <div class="md:col-span-7 flex items-center">
-                            <div class="md:ml-auto">
-                                <p class="text-5xl md:text-6xl font-serif text-gradient mb-1">$140K</p>
-                                <p class="text-white/40 text-xs uppercase tracking-wider">MRR Added</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="bg-[#0A0B10] border border-white/10 p-8 md:p-10 reveal">
+                    <!-- Tag -->
+                    <span class="inline-block px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-brand-green bg-brand-green/10 border border-brand-green/20 mb-6">Cold Email Platform</span>
+
+                    <!-- Headline Result -->
+                    <h3 class="text-2xl md:text-3xl font-serif text-white leading-tight mb-6">
+                        $140K MRR Added from Meta Ads
+                    </h3>
+
+                    <!-- Deliverables -->
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green mt-1">&#10003;</span>
+                            <span class="text-white/60 text-sm">High-intent audience segments identified</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green mt-1">&#10003;</span>
+                            <span class="text-white/60 text-sm">Pain-point focused creative angles</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green mt-1">&#10003;</span>
+                            <span class="text-white/60 text-sm">Full conversion system built</span>
+                        </li>
+                    </ul>
+
+                    <!-- CTA -->
+                    <a href="#" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-brand-dark text-sm font-medium rounded-full hover:bg-brand-green hover:text-white transition-colors">
+                        Get Results Like This
+                        <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+                    </a>
                 </div>
 
                 <!-- Case Study 4: BookYourData -->
-                <div class="border-t border-b border-white/10 py-12 md:py-16 reveal">
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-                        <!-- Left: Company & Context -->
-                        <div class="md:col-span-5">
-                            <div class="mb-6">
-                                <h3 class="text-2xl md:text-3xl font-serif text-white mb-2">BookYourData</h3>
-                                <p class="text-white/40 text-sm font-light">B2B contact database</p>
-                            </div>
-                            <p class="text-white/50 font-light leading-relaxed text-sm md:text-base">
-                                Leads weren't converting in a commoditized market. We developed targeted messaging for specific buyer personas and built conversion-focused funnels with personalized journeys.
-                            </p>
-                        </div>
-                        <!-- Right: Results -->
-                        <div class="md:col-span-7 flex items-center">
-                            <div class="md:ml-auto">
-                                <p class="text-5xl md:text-6xl font-serif text-gradient mb-1">$60K</p>
-                                <p class="text-white/40 text-xs uppercase tracking-wider">MRR Added</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="bg-[#0A0B10] border border-white/10 p-8 md:p-10 reveal">
+                    <!-- Tag -->
+                    <span class="inline-block px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-brand-green bg-brand-green/10 border border-brand-green/20 mb-6">B2B Data Platform</span>
+
+                    <!-- Headline Result -->
+                    <h3 class="text-2xl md:text-3xl font-serif text-white leading-tight mb-6">
+                        $60K MRR Added in Commoditized Market
+                    </h3>
+
+                    <!-- Deliverables -->
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green mt-1">&#10003;</span>
+                            <span class="text-white/60 text-sm">Buyer persona-specific messaging</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green mt-1">&#10003;</span>
+                            <span class="text-white/60 text-sm">Personalized funnel journeys</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-green mt-1">&#10003;</span>
+                            <span class="text-white/60 text-sm">Improved lead-to-customer conversion</span>
+                        </li>
+                    </ul>
+
+                    <!-- CTA -->
+                    <a href="#" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-brand-dark text-sm font-medium rounded-full hover:bg-brand-green hover:text-white transition-colors">
+                        Get Results Like This
+                        <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+                    </a>
                 </div>
             </div>
         </section>
