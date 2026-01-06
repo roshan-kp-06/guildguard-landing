@@ -125,6 +125,29 @@
         .hero-animate.loaded.delay-4 { transition-delay: 0.28s; }
         .hero-animate.loaded.delay-5 { transition-delay: 0.38s; }
 
+        /* --- Nav Link Hover Effect --- */
+        .nav-link {
+            position: relative;
+            padding-bottom: 2px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #5865F2;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link:hover {
+            color: white;
+            transform: translateY(-1px);
+        }
+
         /* --- Custom UI Elements --- */
         .glass-panel {
             background: linear-gradient(180deg, rgba(88, 101, 242, 0.03) 0%, rgba(255,255,255,0.01) 100%);
@@ -210,7 +233,7 @@
         </style>
 </head>
 
-<body class="relative min-h-screen selection:bg-brand-green selection:text-white">
+<body id="top" class="relative min-h-screen selection:bg-brand-green selection:text-white">
 
     <!-- Background Grid -->
     <div class="fixed inset-0 pointer-events-none -z-10 bg-grid"></div>
@@ -219,15 +242,15 @@
     <!-- Section 1: Navigation -->
     <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[95%] md:w-[92%] max-w-5xl z-50 transition-all duration-300">
         <div class="glass-panel rounded-full p-2 pl-4 md:pl-6 flex items-center justify-between shadow-2xl shadow-brand-green/10">
-            <a href="#" class="flex items-center gap-2">
+            <a href="#top" class="flex items-center gap-2">
                 <img src="airr-digital-logo-white.png" alt="Airr Digital" class="h-5 md:h-6">
             </a>
 
             <div class="hidden md:flex items-center gap-8">
-                <a href="#what-we-offer" class="text-xs font-normal text-white/60 hover:text-white transition-colors">What We Offer</a>
-                <a href="#case-studies" class="text-xs font-normal text-white/60 hover:text-white transition-colors">Case Studies</a>
-                <a href="#how-it-works" class="text-xs font-normal text-white/60 hover:text-white transition-colors">How It Works</a>
-                <a href="#faq" class="text-xs font-normal text-white/60 hover:text-white transition-colors">FAQ</a>
+                <a href="#what-we-offer" class="nav-link text-sm font-medium text-white/60 hover:text-white transition-all duration-200">What We Offer</a>
+                <a href="#case-studies" class="nav-link text-sm font-medium text-white/60 hover:text-white transition-all duration-200">Case Studies</a>
+                <a href="#how-it-works" class="nav-link text-sm font-medium text-white/60 hover:text-white transition-all duration-200">How It Works</a>
+                <a href="#faq" class="nav-link text-sm font-medium text-white/60 hover:text-white transition-all duration-200">FAQ</a>
             </div>
 
             <div class="flex items-center gap-3">
@@ -376,7 +399,7 @@
         </section>
 
         <!-- Section 6: Why Airr Digital -->
-        <section id="what-we-offer" class="container mx-auto px-6 max-w-6xl mb-20 md:mb-32">
+        <section class="container mx-auto px-6 max-w-6xl mb-20 md:mb-32">
             <div class="mb-16 md:mb-20 text-center reveal">
                 <h2 class="text-3xl md:text-5xl font-serif text-white tracking-tight mb-6">Why Airr Digital</h2>
                 <p class="text-white/80 font-medium leading-relaxed text-lg md:text-xl max-w-2xl mx-auto">
@@ -857,11 +880,11 @@
         </section>
 
         <!-- Section 10: Everything You Get -->
-        <section class="mb-20 md:mb-32 container mx-auto px-6 max-w-6xl">
+        <section id="what-we-offer" class="mb-20 md:mb-32 container mx-auto px-6 max-w-6xl">
             <!-- Header -->
             <div class="text-center mb-16 md:mb-20 reveal">
                 <h2 class="text-3xl md:text-5xl lg:text-6xl font-serif text-white tracking-tight mb-6">Everything You Get From Working With Us</h2>
-                <p class="text-white/50 text-lg md:text-xl max-w-2xl mx-auto">Managed outcomes by a team that understands demand generation.</p>
+                <p class="text-white/50 text-lg md:text-xl max-w-2xl mx-auto">We create, launch, and run your entire paid ads funnel from A-Z.</p>
             </div>
 
             <!-- CSS for animated border on hover -->
@@ -1170,7 +1193,7 @@
         <!-- Section 11: Client Results -->
         <section class="container mx-auto px-6 max-w-6xl mb-20 md:mb-32">
             <div class="text-center mb-16 md:mb-20 reveal">
-                <h2 class="text-3xl md:text-5xl lg:text-6xl font-serif text-white tracking-tight mb-6">We Run Ads That Make Our Clients Money</h2>
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-serif text-white tracking-tight mb-6">We Run Ads That Generate Leads, Book Demos And Acquire Customers. <span class="text-gradient italic">Profitably.</span></h2>
             </div>
 
             <!-- Full-width horizontal result cards -->
@@ -1372,8 +1395,7 @@
         <!-- Section 12: 3 Steps To Profitable Ads -->
         <section class="container mx-auto px-6 max-w-6xl mb-20 md:mb-32">
             <div class="text-center mb-12 md:mb-16 reveal">
-                <h2 class="text-3xl md:text-5xl font-serif text-white tracking-tight mb-4">3 Steps To Profitable Ads...</h2>
-                <p class="text-white/60 text-lg max-w-2xl mx-auto">Here's exactly what happens when you work with us</p>
+                <h2 class="text-3xl md:text-5xl font-serif text-white tracking-tight">3 Steps To Profitable Ads...</h2>
             </div>
 
             <!-- Steps with connecting lines between boxes -->
