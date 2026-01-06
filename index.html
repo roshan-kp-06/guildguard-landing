@@ -733,79 +733,29 @@
             </div>
         </section>
 
-        <!-- Section 9: Testimonials - Featured Rotating Display -->
+        <!-- Section 9: Single Featured Testimonial -->
         <section class="relative py-20 md:py-32 mb-20 md:mb-32 overflow-hidden">
-            <!-- Subtle gradient background - unique to this section -->
+            <!-- Subtle gradient background -->
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0B10]/50 to-transparent"></div>
 
-            <div class="container mx-auto px-6 max-w-5xl relative">
-                <!-- Section label -->
-                <div class="mb-16 md:mb-20 reveal">
-                    <span class="inline-block px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.2em] text-white/60 border border-white/20 rounded-full">Client Testimonials</span>
-                </div>
-
-                <!-- Testimonial Carousel Container -->
-                <div class="relative reveal" id="testimonial-carousel">
+            <div class="container mx-auto px-6 max-w-4xl relative">
+                <div class="text-center reveal">
                     <!-- Large decorative quote -->
-                    <div class="absolute -top-4 -left-2 md:-top-8 md:-left-6 text-[120px] md:text-[200px] font-serif text-white/[0.03] leading-none select-none pointer-events-none">"</div>
+                    <div class="text-[100px] md:text-[160px] font-serif text-white/[0.04] leading-none select-none pointer-events-none mb-[-60px] md:mb-[-100px]">"</div>
 
-                    <!-- Testimonials - stacked, one visible at a time -->
-                    <div class="relative min-h-[280px] md:min-h-[220px]">
-                        <!-- Testimonial 1 -->
-                        <div class="testimonial-slide absolute inset-0 transition-all duration-700 opacity-100" data-index="0">
-                            <blockquote class="mb-10 md:mb-12">
-                                <p class="text-2xl md:text-4xl lg:text-5xl font-serif text-white leading-[1.3] tracking-tight">
-                                    Airr Digital completely transformed our paid acquisition. We went from burning money on ads to having a predictable, profitable growth channel.
-                                </p>
-                            </blockquote>
-                            <footer class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center text-white font-medium text-lg">A</div>
-                                <div>
-                                    <cite class="not-italic text-white font-medium text-base block">Andre Armacollo</cite>
-                                    <span class="text-white/40 text-sm">Founder, ListKit</span>
-                                </div>
-                            </footer>
+                    <blockquote class="mb-10 md:mb-12">
+                        <p class="text-2xl md:text-4xl lg:text-5xl font-serif text-white leading-[1.3] tracking-tight">
+                            "We tried 3 agencies before you guys and none of them got us any results. After 2 months of working with Airr Digital our CAC has dropped by 60%, and our ads are actually profitable."
+                        </p>
+                    </blockquote>
+
+                    <footer class="flex items-center justify-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center text-white font-medium text-lg">C</div>
+                        <div class="text-left">
+                            <cite class="not-italic text-white font-medium text-base block">Carson Szeder</cite>
+                            <span class="text-white/40 text-sm">CEO, AI Edtech SaaS</span>
                         </div>
-
-                        <!-- Testimonial 2 -->
-                        <div class="testimonial-slide absolute inset-0 transition-all duration-700 opacity-0 pointer-events-none" data-index="1">
-                            <blockquote class="mb-10 md:mb-12">
-                                <p class="text-2xl md:text-4xl lg:text-5xl font-serif text-white leading-[1.3] tracking-tight">
-                                    We tried 3 agencies before Airr Digital. The difference? They actually understand B2B SaaS. Our CAC dropped by 60%.
-                                </p>
-                            </blockquote>
-                            <footer class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center text-white font-medium text-lg">C</div>
-                                <div>
-                                    <cite class="not-italic text-white font-medium text-base block">Carson Szeder</cite>
-                                    <span class="text-white/40 text-sm">CEO, AI Edtech SaaS</span>
-                                </div>
-                            </footer>
-                        </div>
-
-                        <!-- Testimonial 3 -->
-                        <div class="testimonial-slide absolute inset-0 transition-all duration-700 opacity-0 pointer-events-none" data-index="2">
-                            <blockquote class="mb-10 md:mb-12">
-                                <p class="text-2xl md:text-4xl lg:text-5xl font-serif text-white leading-[1.3] tracking-tight">
-                                    The speed was incredible. We went from kickoff to live campaigns in under 2 weeks. Within 60 days we had 9x more qualified demos.
-                                </p>
-                            </blockquote>
-                            <footer class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center text-white font-medium text-lg">A</div>
-                                <div>
-                                    <cite class="not-italic text-white font-medium text-base block">Andrew Osborne</cite>
-                                    <span class="text-white/40 text-sm">Founder, Upnotify</span>
-                                </div>
-                            </footer>
-                        </div>
-                    </div>
-
-                    <!-- Navigation dots -->
-                    <div class="flex items-center gap-3 mt-12 md:mt-16">
-                        <button class="testimonial-dot w-10 h-1 bg-white/60 rounded-full transition-all duration-300" data-index="0" aria-label="View testimonial 1"></button>
-                        <button class="testimonial-dot w-10 h-1 bg-white/20 rounded-full transition-all duration-300 hover:bg-white/40" data-index="1" aria-label="View testimonial 2"></button>
-                        <button class="testimonial-dot w-10 h-1 bg-white/20 rounded-full transition-all duration-300 hover:bg-white/40" data-index="2" aria-label="View testimonial 3"></button>
-                    </div>
+                    </footer>
                 </div>
             </div>
         </section>
@@ -1481,65 +1431,6 @@
         window.addEventListener('resize', updateTimeline);
         // Run once on load after a short delay to ensure elements are rendered
         setTimeout(updateTimeline, 100);
-
-        // Testimonial Carousel
-        (function() {
-            const slides = document.querySelectorAll('.testimonial-slide');
-            const dots = document.querySelectorAll('.testimonial-dot');
-            let currentIndex = 0;
-            let autoplayInterval;
-
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    if (i === index) {
-                        slide.classList.remove('opacity-0', 'pointer-events-none');
-                        slide.classList.add('opacity-100');
-                    } else {
-                        slide.classList.remove('opacity-100');
-                        slide.classList.add('opacity-0', 'pointer-events-none');
-                    }
-                });
-
-                dots.forEach((dot, i) => {
-                    if (i === index) {
-                        dot.classList.remove('bg-white/20');
-                        dot.classList.add('bg-white/60');
-                    } else {
-                        dot.classList.remove('bg-white/60');
-                        dot.classList.add('bg-white/20');
-                    }
-                });
-
-                currentIndex = index;
-            }
-
-            function nextSlide() {
-                const next = (currentIndex + 1) % slides.length;
-                showSlide(next);
-            }
-
-            // Dot click handlers
-            dots.forEach((dot, i) => {
-                dot.addEventListener('click', () => {
-                    showSlide(i);
-                    // Reset autoplay timer on manual interaction
-                    clearInterval(autoplayInterval);
-                    autoplayInterval = setInterval(nextSlide, 6000);
-                });
-            });
-
-            // Start autoplay
-            autoplayInterval = setInterval(nextSlide, 6000);
-
-            // Pause on hover
-            const carousel = document.getElementById('testimonial-carousel');
-            if (carousel) {
-                carousel.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
-                carousel.addEventListener('mouseleave', () => {
-                    autoplayInterval = setInterval(nextSlide, 6000);
-                });
-            }
-        })();
     </script>
 
 </body>
